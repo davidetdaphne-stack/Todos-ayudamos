@@ -6,3109 +6,2424 @@
 <meta name="theme-color" content="#315c9b">
 <title>No Estamos Solos</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 :root{
 --blue:#315c9b;
---dark:#244675;
---light:#eaf2fb;
---green:#3f8f68;
---orange:#e89a3d;
---red:#d85c5c;
---purple:#7659a8;
---text:#263442;
---muted:#71808f;
---white:#fff;
---bg:#f4f7fa;
---border:#dce4eb;
---shadow:0 5px 20px rgba(36,70,117,.10);
---radius:18px;
+--blue2:#4479c4;
+--light:#eef5ff;
+--dark:#17345d;
+--green:#2e9d68;
+--orange:#f19a38;
+--red:#d9534f;
+--purple:#7256b8;
+--white:#ffffff;
+--gray:#687386;
+--bg:#f5f7fb;
+--border:#dfe5ef;
+--shadow:0 8px 25px rgba(20,45,80,.10);
 }
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:var(--bg);
-color:var(--text);
+color:#1d2939;
 min-height:100vh;
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-.hidden{display:none!important}
-.screen{display:none;min-height:100vh}
-.screen.active{display:block}
-#welcome{
-background:linear-gradient(145deg,#315c9b,#477bb7);
-color:white;
-padding:30px 18px;
-align-items:center;
-justify-content:center;
+button,
+input,
+select,
+textarea{
+font-family:inherit;
 }
-#welcome.active{display:flex}
-.welcome-box{
-width:100%;
-max-width:560px;
-text-align:center;
-}
-.logo{
-width:88px;
-height:88px;
-border-radius:50%;
-background:white;
-color:var(--blue);
-display:flex;
-align-items:center;
-justify-content:center;
-margin:0 auto 22px;
-font-size:42px;
-box-shadow:0 8px 30px rgba(0,0,0,.15);
-}
-.welcome-box h1{
-font-size:38px;
-margin-bottom:12px;
-}
-.subtitle{
-font-size:19px;
-line-height:1.5;
-margin-bottom:30px;
-}
-.welcome-card{
-background:white;
-color:var(--text);
-border-radius:24px;
-padding:26px;
-box-shadow:var(--shadow);
-text-align:left;
-}
-.welcome-card h2{margin-bottom:10px}
-.welcome-card p{
-color:var(--muted);
-line-height:1.5;
-margin-bottom:20px;
-}
-.primary-button{
-width:100%;
+button{
+cursor:pointer;
 border:0;
-border-radius:14px;
-padding:15px 18px;
+}
+.hidden{
+display:none!important;
+}
+.screen{
+display:none;
+min-height:100vh;
+}
+.screen.active{
+display:block;
+}
+.container{
+width:min(1100px,94%);
+margin:auto;
+}
+.topbar{
 background:var(--blue);
 color:white;
-font-weight:bold;
-}
-.primary-button:hover{background:var(--dark)}
-.secondary-button{
-border:1px solid var(--border);
-background:white;
-color:var(--text);
-border-radius:12px;
-padding:11px 15px;
-font-weight:bold;
-}
-#setup{padding:25px 15px 50px}
-.setup-container{
-width:100%;
-max-width:700px;
-margin:auto;
-}
-.top-title{text-align:center;margin-bottom:25px}
-.mini-logo{font-size:38px;margin-bottom:8px}
-.top-title h1{
-color:var(--dark);
-font-size:30px;
-margin-bottom:8px;
-}
-.top-title p{
-color:var(--muted);
-line-height:1.5;
-}
-.setup-card{
-background:white;
-border-radius:var(--radius);
-padding:24px;
-box-shadow:var(--shadow);
-margin-bottom:18px;
-}
-.setup-card h2{
-font-size:21px;
-margin-bottom:8px;
-}
-.setup-card>p{
-color:var(--muted);
-line-height:1.5;
-margin-bottom:20px;
-}
-.form-group{margin-bottom:17px}
-.form-group label{
-display:block;
-font-weight:bold;
-margin-bottom:7px;
-}
-.form-group input,
-.form-group select{
-width:100%;
-border:1px solid var(--border);
-border-radius:12px;
-padding:13px 14px;
-background:white;
-color:var(--text);
-outline:none;
-}
-.form-group input:focus,
-.form-group select:focus{
-border-color:var(--blue);
-box-shadow:0 0 0 3px rgba(49,92,155,.10);
-}
-.member-row{
-display:grid;
-grid-template-columns:1fr 150px 48px;
-gap:10px;
-margin-bottom:10px;
-align-items:center;
-}
-.member-row input,
-.member-row select{
-width:100%;
-border:1px solid var(--border);
-border-radius:11px;
-padding:11px;
-}
-.remove-member{
-width:42px;
-height:42px;
-border:0;
-border-radius:11px;
-background:#fbeaea;
-color:var(--red);
-font-size:18px;
-}
-.add-member-button{
-width:100%;
-border:2px dashed var(--border);
-background:#fafcfe;
-color:var(--blue);
-border-radius:12px;
-padding:12px;
-font-weight:bold;
-}
-.setup-actions{
-display:flex;
-gap:10px;
-margin-top:20px;
-}
-.setup-actions button{flex:1}
-#app{background:var(--bg)}
-.app-header{
-background:white;
-border-bottom:1px solid var(--border);
+padding:14px 0;
 position:sticky;
 top:0;
-z-index:20;
+z-index:50;
+box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
-.header-inner{
-max-width:1100px;
-margin:auto;
-padding:14px 16px;
+.topbar-inner{
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 gap:15px;
 }
-.brand{
-display:flex;
-align-items:center;
-gap:10px;
+.logo{
+font-size:21px;
+font-weight:800;
 }
-.brand-icon{
-width:43px;
-height:43px;
-border-radius:13px;
-background:var(--light);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:23px;
-}
-.brand-text strong{
+.logo small{
 display:block;
-color:var(--dark);
+font-size:11px;
+font-weight:400;
+opacity:.85;
+margin-top:2px;
 }
-.brand-text small{color:var(--muted)}
 .icon-button{
 width:42px;
 height:42px;
-border:1px solid var(--border);
-background:white;
 border-radius:12px;
-font-size:18px;
-}
-.app-content{
-max-width:1100px;
-margin:auto;
-padding:20px 15px 90px;
-}
-.navigation{
-display:flex;
-gap:8px;
-overflow-x:auto;
-padding-bottom:15px;
-scrollbar-width:none;
-}
-.navigation::-webkit-scrollbar{display:none}
-.nav-button{
-white-space:nowrap;
-border:1px solid var(--border);
-background:white;
-color:var(--muted);
-padding:10px 14px;
-border-radius:12px;
-font-weight:bold;
-}
-.nav-button.active{
-background:var(--blue);
+background:rgba(255,255,255,.15);
 color:white;
-border-color:var(--blue);
+font-size:20px;
 }
-.page{display:none}
-.page.active{display:block}
-.page-title{margin:8px 0 18px}
-.page-title h2{
-color:var(--dark);
-margin-bottom:5px;
+main{
+padding:25px 0 100px;
 }
-.page-title p{color:var(--muted)}
-.dashboard-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
-margin-bottom:18px;
-}
-.stat-card{
+.card{
 background:white;
-border-radius:16px;
-padding:17px;
-box-shadow:var(--shadow);
-}
-.stat-card strong{
-display:block;
-font-size:26px;
-color:var(--dark);
-}
-.stat-card span{
-color:var(--muted);
-font-size:13px;
-}
-.panel{
-background:white;
-border-radius:var(--radius);
+border:1px solid var(--border);
+border-radius:18px;
 padding:20px;
 box-shadow:var(--shadow);
 margin-bottom:18px;
 }
-.panel-header{
+.hero{
+background:linear-gradient(135deg,#315c9b,#4e83cc);
+color:white;
+border:0;
+padding:28px;
+}
+.hero h1{
+font-size:30px;
+margin-bottom:10px;
+}
+.hero p{
+line-height:1.5;
+opacity:.95;
+}
+h1,h2,h3{
+color:var(--dark);
+}
+.hero h1{
+color:white;
+}
+.subtitle{
+color:var(--gray);
+margin-top:6px;
+line-height:1.45;
+}
+.btn{
+padding:12px 18px;
+border-radius:12px;
+font-weight:700;
+font-size:15px;
+transition:.15s;
+}
+.btn:hover{
+transform:translateY(-1px);
+}
+.btn-primary{
+background:var(--blue);
+color:white;
+}
+.btn-secondary{
+background:#e8eef8;
+color:var(--dark);
+}
+.btn-success{
+background:var(--green);
+color:white;
+}
+.btn-danger{
+background:var(--red);
+color:white;
+}
+.btn-warning{
+background:var(--orange);
+color:white;
+}
+.btn-purple{
+background:var(--purple);
+color:white;
+}
+.btn-full{
+width:100%;
+}
+.form-group{
+margin-bottom:16px;
+}
+.form-group label{
+display:block;
+font-weight:700;
+margin-bottom:7px;
+}
+input,
+select,
+textarea{
+width:100%;
+padding:13px 14px;
+border:1px solid #ccd5e2;
+border-radius:11px;
+background:white;
+font-size:15px;
+outline:none;
+}
+input:focus,
+select:focus,
+textarea:focus{
+border-color:var(--blue);
+box-shadow:0 0 0 3px rgba(49,92,155,.10);
+}
+textarea{
+min-height:90px;
+resize:vertical;
+}
+.grid{
+display:grid;
+gap:16px;
+}
+.grid-2{
+grid-template-columns:repeat(2,1fr);.grid-3{
+grid-template-columns:repeat(3,1fr);
+}
+.grid-4{
+grid-template-columns:repeat(4,1fr);
+}
+.stat{
+background:white;
+border:1px solid var(--border);
+border-radius:17px;
+padding:18px;
+box-shadow:var(--shadow);
+}
+.stat-icon{
+font-size:28px;
+}
+.stat-number{
+font-size:27px;
+font-weight:800;
+color:var(--dark);
+margin-top:6px;
+}
+.stat-label{
+font-size:13px;
+color:var(--gray);
+margin-top:4px;
+}
+.section-title{
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
+gap:12px;
+margin:25px 0 13px;
+}
+.section-title h2{
+font-size:22px;
+}
+.bottom-nav{
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+height:70px;
+background:white;
+border-top:1px solid var(--border);
+display:flex;
+justify-content:center;
+z-index:100;
+box-shadow:0 -5px 20px rgba(0,0,0,.08);
+}
+.bottom-nav-inner{
+width:min(1100px,100%);
+display:grid;
+grid-template-columns:repeat(6,1fr);
+}
+.nav-btn{
+background:white;
+color:#657083;
+font-size:11px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:4px;
+}
+.nav-btn span{
+font-size:21px;
+}
+.nav-btn.active{
+color:var(--blue);
+font-weight:800;
+}
+.task-hour{
+display:grid;
+grid-template-columns:95px 1fr;
+min-height:88px;
+border-bottom:1px solid var(--border);
+}
+.hour-label{
+padding:18px 10px 18px 0;
+font-weight:800;
+color:var(--gray);
+font-size:14px;
+}
+.hour-content{
+padding:12px 0;
+min-height:70px;
+}
+.empty-hour{
+border:1px dashed #ccd5e2;
+border-radius:12px;
+padding:12px;
+color:#8993a4;
+text-align:center;
+background:#fafcff;
+}
+.task-card{
+background:white;
+border:1px solid var(--border);
+border-left:5px solid var(--blue);
+border-radius:13px;
+padding:14px;
+margin-bottom:8px;
+box-shadow:0 4px 12px rgba(20,45,80,.07);
+}
+.task-card.done{
+opacity:.65;
+border-left-color:var(--green);
+}
+.task-card.done .task-title{
+text-decoration:line-through;
+}
+.task-title{
+font-weight:800;
+font-size:16px;
+color:var(--dark);
+}
+.task-meta{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:7px;
+font-size:13px;
+color:var(--gray);
+}
+.task-actions{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin-top:11px;
+}
+.small-btn{
+padding:7px 10px;
+border-radius:9px;
+font-size:12px;
+font-weight:700;
+background:#edf2f8;
+color:var(--dark);
+}
+.date-selector{
+display:flex;
+align-items:center;
+justify-content:space-between;
 gap:10px;
 margin-bottom:15px;
 }
-.panel-header h3{color:var(--dark)}
-.empty-state{
-text-align:center;
-padding:30px 15px;
-color:var(--muted);
+.date-selector button{
+background:#edf2f8;
+border-radius:10px;
+padding:10px 14px;
+font-size:18px;
 }
-.empty-icon{
-font-size:42px;
+.date-main{
+text-align:center;
+flex:1;
+}
+.date-main strong{
+display:block;
+font-size:20px;
+color:var(--dark);
+}
+.date-main span{
+font-size:13px;
+color:var(--gray);
+}
+.member-card{
+background:white;
+border:1px solid var(--border);
+border-radius:16px;
+padding:18px;
+box-shadow:var(--shadow);
+}
+.avatar{
+width:52px;
+height:52px;
+border-radius:50%;
+background:#e6eefb;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
 margin-bottom:10px;
 }
-@media(max-width:800px){
-.dashboard-grid{grid-template-columns:repeat(2,1fr)}
-.member-row{grid-template-columns:1fr 120px 45px}
+.member-name{
+font-size:18px;
+font-weight:800;
+color:var(--dark);
 }
-@media(max-width:560px){
-.welcome-box h1{font-size:31px}
-.setup-card,.panel{padding:17px}
-.stat-card{padding:13px}
-.stat-card strong{font-size:22px}
-.member-row{grid-template-columns:1fr 45px}
-.member-row select{grid-column:1}
-.remove-member{
-grid-column:2;
-grid-row:1/span 2;
+.points-big{
+font-size:28px;
+font-weight:900;
+color:var(--purple);
+margin-top:6px;
 }
-.setup-actions{flex-direction:column}
+.progress{
+height:9px;
+background:#e7ebf1;
+border-radius:99px;
+overflow:hidden;
+margin-top:10px;
+}
+.progress-bar{
+height:100%;
+background:var(--purple);
+border-radius:99px;
+}
+.reward-card{
+background:white;
+border:1px solid var(--border);
+border-radius:16px;
+padding:18px;
+box-shadow:var(--shadow);
+}
+.reward-icon{
+font-size:35px;
+}
+.reward-title{
+font-size:18px;
+font-weight:800;
+margin-top:7px;
+}
+.reward-cost{
+color:var(--purple);
+font-weight:900;
+margin-top:7px;
+}
+.reward-description{
+color:var(--gray);
+font-size:13px;
+margin-top:5px;
+line-height:1.4;
+}
+.modal{
+position:fixed;
+inset:0;
+background:rgba(10,25,45,.55);
+display:none;
+align-items:center;
+justify-content:center;
+padding:15px;
+z-index:200;
+}
+.modal.open{
+display:flex;
+}
+.modal-box{
+width:min(620px,100%);
+max-height:92vh;
+overflow:auto;
+background:white;
+border-radius:20px;
+padding:22px;
+box-shadow:0 20px 70px rgba(0,0,0,.25);
+}
+.modal-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+margin-bottom:18px;
+}
+.close{
+width:38px;
+height:38px;
+border-radius:10px;
+background:#edf1f6;
+font-size:20px;
+}
+.modal-footer{
+display:flex;
+justify-content:flex-end;
+gap:10px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+.subscription{
+border:2px solid var(--blue);
+background:linear-gradient(180deg,#fff,#f4f8ff);
+border-radius:20px;
+padding:25px;
+}
+.price{
+font-size:42px;
+font-weight:900;
+color:var(--dark);
+margin:10px 0;
+}
+.price small{
+font-size:15px;
+font-weight:500;
+color:var(--gray);
+}
+.feature-list{
+list-style:none;
+margin:18px 0;
+}
+.feature-list li{
+padding:9px 0;
+border-bottom:1px solid #e6eaf0;
+}
+.feature-list li:last-child{
+border-bottom:0;
+}
+.badge{
+display:inline-block;
+padding:5px 9px;
+border-radius:20px;
+font-size:11px;
+font-weight:800;
+background:#e7f7ef;
+color:#20774c;
+}
+.info{
+background:#eef5ff;
+border:1px solid #d5e4fb;
+border-radius:13px;
+padding:14px;
+color:#365477;
+line-height:1.5;
+font-size:14px;
+}
+.empty{
+text-align:center;
+padding:35px 15px;
+color:var(--gray);
+}
+.toast{
+position:fixed;
+left:50%;
+bottom:85px;
+transform:translateX(-50%);
+background:#1e293b;
+color:white;
+padding:13px 18px;
+border-radius:12px;
+z-index:500;
+display:none;
+box-shadow:var(--shadow);
+font-weight:700;
+}
+.toast.show{
+display:block;
+}
+.points-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+padding:14px 0;
+border-bottom:1px solid var(--border);
+}
+.points-row:last-child{
+border-bottom:0;
+}
+.points-name{
+font-weight:800;
+}
+.points-value{
+font-weight:900;
+font-size:19px;
+color:var(--purple);
+}
+@media(max-width:750px){
+.grid-2,
+.grid-3,
+.grid-4{
+grid-template-columns:1fr;
+}
+.hero h1{
+font-size:25px;
+}
+.task-hour{
+grid-template-columns:72px 1fr;
+}
+.hour-label{
+font-size:12px;
+}
+.bottom-nav-inner{
+grid-template-columns:repeat(6,1fr);
+}
+.nav-btn{
+font-size:9px;
+}
+.nav-btn span{
+font-size:18px;
+}
+.card{
+padding:16px;
+}
 }
 </style>
 </head>
+
 <body>
-<section id="welcome" class="screen active">
-<div class="welcome-box">
-<div class="logo">🏠</div>
-<h1>No Estamos Solos</h1>
-<p class="subtitle">En casa vivimos todos.<br>En casa ayudamos todos.</p>
-<div class="welcome-card">
-<h2>Una familia, un equipo ❤️</h2>
-<p>Organiza las tareas de casa, reparte responsabilidades, consigue puntos y disfruta de premios en familia.</p>
-<button class="primary-button" onclick="showScreen('setup')">Crear nuestra familia</button>
+
+<section id="welcomeScreen" class="screen active">
+<main>
+<div class="container">
+<div class="card hero" style="margin-top:35px;">
+<h1>💙 No Estamos Solos</h1>
+<p>En casa vivimos todos. En casa ayudamos todos.</p>
+<p style="margin-top:15px;">
+Una forma sencilla de organizar las tareas de casa,
+repartir responsabilidades y conseguir puntos por ayudar.
+</p>
+</div>
+
+<div class="card">
+<h2>👨‍👩‍👧‍👦 Crea tu familia</h2>
+<p class="subtitle">
+Primero introduce el nombre de tu familia y las personas que participarán.
+Los nombres los eliges tú.
+</p>
+
+<div class="form-group" style="margin-top:20px;">
+<label>Nombre de la familia</label>
+<input id="firstFamilyName" placeholder="Ejemplo: Familia García">
+</div>
+
+<div id="firstMembers"></div>
+
+<button class="btn btn-secondary btn-full" onclick="addFirstMember()">
+➕ Añadir persona
+</button>
+
+<button class="btn btn-primary btn-full" style="margin-top:12px;" onclick="startFamily()">
+Empezar
+</button>
 </div>
 </div>
+</main>
 </section>
-<section id="setup" class="screen">
-<div class="setup-container">
-<div class="top-title">
-<div class="mini-logo">🏠</div>
-<h1>Preparad vuestra familia</h1>
-<p>Los nombres los pone la familia. No hay nombres predeterminados.</p>
-</div>
-<div class="setup-card">
-<h2>👨‍👩‍👧‍👦 Datos de la familia</h2>
-<p>Escribe el nombre que queráis utilizar.</p>
-<div class="form-group">
-<label for="familyName">Nombre de la familia</label>
-<input id="familyName" type="text" maxlength="50" placeholder="Nombre de vuestra familia">
-</div>
-</div>
-<div class="setup-card">
-<h2>👥 Miembros</h2>
-<p>Añade a las personas que participarán en la organización familiar.</p>
-<div id="setupMembers"></div>
-<button type="button" class="add-member-button" onclick="addSetupMember()">➕ Añadir miembro</button>
-<div class="setup-actions">
-<button type="button" class="secondary-button" onclick="showScreen('welcome')">← Atrás</button>
-<button type="button" class="primary-button" onclick="createFamily()">Crear familia</button>
-</div>
-</div>
-</div>
-</section>
-<section id="app" class="screen">
-<header class="app-header">
-<div class="header-inner">
-<div class="brand">
-<div class="brand-icon">🏠</div>
-<div class="brand-text">
-<strong id="headerFamilyName">Nuestra familia</strong>
-<small>No Estamos Solos</small>
-</div>
+
+<section id="appScreen" class="screen">
+
+<header class="topbar">
+<div class="container topbar-inner">
+<div class="logo">
+💙 No Estamos Solos
+<small id="familyTitle">Mi familia</small>
 </div>
 <button class="icon-button" onclick="openSettings()">⚙️</button>
 </div>
 </header>
-<main class="app-content">
-<nav class="navigation">
-<button class="nav-button active" data-page="home" onclick="openPage('home')">🏠 Inicio</button>
-<button class="nav-button" data-page="tasks" onclick="openPage('tasks')">📋 Tareas</button>
-<button class="nav-button" data-page="calendar" onclick="openPage('calendar')">📅 Calendario</button>
-<button class="nav-button" data-page="family" onclick="openPage('family')">👨‍👩‍👧‍👦 Familia</button>
-<button class="nav-button" data-page="rewards" onclick="openPage('rewards')">🎁 Premios</button>
-<button class="nav-button" data-page="more" onclick="openPage('more')">✨ Más</button>
-</nav>
-<section id="page-home" class="page active">
-<div class="page-title">
-<h2 id="homeGreeting">¡Hola, familia! 👋</h2>
-<p>Aquí podréis ver cómo va el día.</p>
+
+<main>
+<div class="container">
+
+<section id="pageHome" class="page">
+
+<div class="card hero">
+<h1>¡Hola! 👋</h1>
+<p>En esta familia todos ayudamos y todos sumamos.</p>
 </div>
-<div class="dashboard-grid">
-<div class="stat-card"><strong id="statTasks">0</strong><span>📋 Tareas</span></div>
-<div class="stat-card"><strong id="statCompleted">0</strong><span>✅ Completadas</span></div>
-<div class="stat-card"><strong id="statPoints">0</strong><span>⭐ Puntos</span></div>
-<div class="stat-card"><strong id="statMembers">0</strong><span>👥 Miembros</span></div>
+
+<div class="grid grid-4" style="margin-top:18px;">
+<div class="stat">
+<div class="stat-icon">📋</div>
+<div id="homeTasks" class="stat-number">0</div>
+<div class="stat-label">Tareas hoy</div>
 </div>
-<div class="panel">
-<div class="panel-header">
-<h3>📋 Tareas de hoy</h3>
-<button class="secondary-button" onclick="openPage('tasks')">Ver todas</button>
+
+<div class="stat">
+<div class="stat-icon">✅</div>
+<div id="homeDone" class="stat-number">0</div>
+<div class="stat-label">Completadas</div>
 </div>
-<div id="todayTasks">
-<div class="empty-state"><div class="empty-icon">🌱</div>Todavía no hay tareas para hoy.</div>
+
+<div class="stat">
+<div class="stat-icon">⭐</div>
+<div id="homePoints" class="stat-number">0</div>
+<div class="stat-label">Puntos familiares</div>
+</div>
+
+<div class="stat">
+<div class="stat-icon">🎟️</div>
+<div id="homeRewards" class="stat-number">0</div>
+<div class="stat-label">Vales</div>
 </div>
 </div>
+
+<div class="section-title">
+<h2>Tareas de hoy</h2>
+<button class="btn btn-primary" onclick="openNewTask()">
+➕ Nueva
+</button>
+</div>
+
+<div id="homeTaskList"></div>
+
+<div class="section-title">
+<h2>⭐ Puntos</h2>
+</div>
+
+<div id="homePointsList" class="card"></div>
+
 </section>
-<section id="page-tasks" class="page">
-<div class="page-title">
+
+<section id="pageTasks" class="page hidden">
+
+<div class="section-title">
+<div>
 <h2>📋 Tareas</h2>
-<p>Organizad las tareas y repartidlas entre la familia.</p>
+<p class="subtitle">Organiza las tareas de la familia.</p>
 </div>
-<div class="panel">
-<div class="panel-header">
-<h3>Mis tareas</h3>
-<button class="primary-button" style="width:auto" onclick="openTaskModal()">➕ Nueva tarea</button>
+<button class="btn btn-primary" onclick="openNewTask()">➕ Nueva tarea</button>
 </div>
-<div id="tasksList"></div>
+
+<div class="card">
+<div class="grid grid-2">
+<div>
+<label style="font-weight:700;">Fecha</label>
+<input type="date" id="taskPageDate" onchange="renderTasksPage()">
 </div>
+
+<div>
+<label style="font-weight:700;">Persona</label>
+<select id="taskPageMember" onchange="renderTasksPage()">
+<option value="">Todas las personas</option>
+</select>
+</div>
+</div>
+</div>
+
+<div id="tasksPageList"></div>
+
 </section>
-<section id="page-calendar" class="page">
-<div class="page-title">
-<h2>📅 Calendario</h2>
-<p>Las tareas aparecerán en el día real que elijáis.</p>
+
+<section id="pageCalendar" class="page hidden">
+
+<div class="section-title">
+<div>
+<h2>📅 Calendario diario</h2>
+<p class="subtitle">Cada tarea aparece a su hora.</p>
 </div>
-<div class="panel">
-<div id="calendarContainer"></div>
+<button class="btn btn-primary" onclick="openNewTask()">➕ Crear nueva</button>
 </div>
-</section>
-<section id="page-family" class="page">
-<div class="page-title">
+
+<div class="card">
+<div class="date-selector">
+<button onclick="changeDay(-1)">‹</button>
+<div class="date-main">
+<strong id="calendarDateTitle"></strong>
+<span id="calendarDateSubtitle"></span>
+</div>
+<button onclick="changeDay(1)">›</button>
+</div>
+
+<button class="btn btn-secondary btn-full" onclick="goToday()">
+📍 Ir a hoy
+</button>
+</div>
+
+<div class="card">
+<div id="dailySchedule"></div>
+</div>
+
+</section><section id="pageFamily" class="page hidden">
+
+<div class="section-title">
+<div>
 <h2>👨‍👩‍👧‍👦 Familia</h2>
-<p>Aquí estarán los miembros y sus puntos.</p>
+<p class="subtitle">Aquí aparecen las personas que forman parte de la familia.</p>
 </div>
-<div class="panel"><div id="familyMembers"></div></div>
+<button class="btn btn-primary" onclick="addMember()">
+➕ Añadir
+</button>
+</div>
+
+<div id="familyList" class="grid grid-3"></div>
+
 </section>
-<section id="page-rewards" class="page">
-<div class="page-title">
-<h2>🎁 Premios</h2>
-<p>La familia decide qué premios puede conseguir.</p>
+
+<section id="pagePoints" class="page hidden">
+
+<div class="section-title">
+<div>
+<h2>⭐ Puntos</h2>
+<p class="subtitle">Consulta los puntos de cada niño o miembro de la familia.</p>
 </div>
-<div class="panel">
-<div class="panel-header">
-<h3>Premios familiares</h3>
-<button class="primary-button" style="width:auto" onclick="openRewardModal()">➕ Nuevo premio</button>
 </div>
-<div id="rewardsList"></div>
+
+<div class="card">
+<div class="info">
+Los puntos se consiguen al completar las tareas asignadas.
+Después pueden utilizarse para canjear los vales que cree la familia.
 </div>
+</div>
+
+<div id="pointsPageList"></div>
+
 </section>
-<section id="page-more" class="page">
-<div class="page-title">
-<h2>✨ Más opciones</h2>
-<p>Próximamente estarán aquí las funciones adicionales.</p>
+
+<section id="pageRewards" class="page hidden">
+
+<div class="section-title">
+<div>
+<h2>🎟️ Vales</h2>
+<p class="subtitle">Crea premios que puedan canjearse por puntos.</p>
 </div>
-<div class="panel">
-<div class="empty-state">
-<div class="empty-icon">❤️</div>
-Estamos preparando más herramientas para vuestra familia.
+<button class="btn btn-purple" onclick="openRewardModal()">
+➕ Crear vale
+</button>
+</div>
+
+<div class="card">
+<div class="info">
+Por ejemplo, puedes crear un vale de 100 puntos para
+“Elegir la película de esta noche”.
+Cada familia puede decidir sus propios premios.
 </div>
 </div>
+
+<div id="rewardsList" class="grid grid-3"></div>
+
 </section>
+
+<section id="pageSubscription" class="page hidden">
+
+<div class="section-title">
+<div>
+<h2>💎 Suscripción</h2>
+<p class="subtitle">Más funciones para organizar la vida familiar.</p>
+</div>
+</div>
+
+<div class="subscription">
+<span class="badge">PRIMERA SUSCRIPCIÓN</span>
+
+<h2 style="margin-top:15px;">No Estamos Solos</h2>
+
+<div class="price">
+5,99 €
+<small>/ mes</small>
+</div>
+
+<p class="subtitle">
+Una suscripción familiar para disfrutar de más funciones.
+</p>
+
+<ul class="feature-list">
+<li>✅ Calendario completo de tareas</li>
+<li>✅ Puntos por ayudar en casa</li>
+<li>✅ Vales canjeables por puntos</li>
+<li>✅ Organización familiar</li>
+<li>✅ Historial de tareas</li>
+<li>✅ Más funciones familiares</li>
+</ul>
+
+<button class="btn btn-primary btn-full" onclick="testSubscription()">
+💳 Suscribirme por 5,99 €/mes
+</button>
+
+<p style="font-size:12px;color:#788398;text-align:center;margin-top:12px;">
+Modo de prueba: el pago todavía no está conectado.
+</p>
+</div>
+
+</section>
+
+<section id="pageMore" class="page hidden">
+
+<div class="section-title">
+<h2>⚙️ Más</h2>
+</div>
+
+<div class="card">
+
+<button class="btn btn-secondary btn-full" onclick="openSettings()">
+⚙️ Ajustes
+</button>
+
+<button class="btn btn-secondary btn-full" style="margin-top:10px;" onclick="exportData()">
+💾 Guardar copia de los datos
+</button>
+
+<button class="btn btn-danger btn-full" style="margin-top:10px;" onclick="resetFamily()">
+🗑️ Borrar familia
+</button>
+
+</div>
+
+</section>
+
+</div>
 </main>
-  </section><script>
-const STORAGE_KEY="noEstamosSolos_v2";
+
+<nav class="bottom-nav">
+<div class="bottom-nav-inner">
+
+<button class="nav-btn active" data-page="pageHome" onclick="showPage('pageHome',this)">
+<span>🏠</span>
+Inicio
+</button>
+
+<button class="nav-btn" data-page="pageTasks" onclick="showPage('pageTasks',this)">
+<span>📋</span>
+Tareas
+</button>
+
+<button class="nav-btn" data-page="pageCalendar" onclick="showPage('pageCalendar',this)">
+<span>📅</span>
+Calendario
+</button>
+
+<button class="nav-btn" data-page="pageFamily" onclick="showPage('pageFamily',this)">
+<span>👨‍👩‍👧</span>
+Familia
+</button>
+
+<button class="nav-btn" data-page="pagePoints" onclick="showPage('pagePoints',this)">
+<span>⭐</span>
+Puntos
+</button>
+
+<button class="nav-btn" data-page="pageRewards" onclick="showPage('pageRewards',this)">
+<span>🎟️</span>
+Vales
+</button>
+
+</div>
+</nav>
+
+</section>
+
+<div id="taskModal" class="modal">
+<div class="modal-box">
+
+<div class="modal-header">
+<h2 id="taskModalTitle">Nueva tarea</h2>
+<button class="close" onclick="closeTaskModal()">×</button>
+</div>
+
+<div class="form-group">
+<label>¿Qué hay que hacer?</label>
+<input id="taskName" placeholder="Ejemplo: Pasar el aspirador">
+</div>
+
+<div class="grid grid-2">
+
+<div class="form-group">
+<label>Fecha</label>
+<input type="date" id="taskDate">
+</div>
+
+<div class="form-group">
+<label>Hora</label>
+<input type="time" id="taskTime">
+</div>
+
+</div>
+
+<div class="form-group">
+<label>¿Quién la hace?</label>
+<select id="taskPerson"></select>
+</div>
+
+<div class="form-group">
+<label>¿Cuántos puntos?</label>
+<input type="number" id="taskPoints" min="0" value="10">
+</div>
+
+<div class="form-group">
+<label>Notas</label>
+<textarea id="taskNotes" placeholder="Detalles de la tarea..."></textarea>
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-secondary" onclick="closeTaskModal()">Cancelar</button>
+<button class="btn btn-primary" onclick="saveTask()">Guardar tarea</button>
+</div>
+
+</div>
+</div>
+
+<div id="detailModal" class="modal">
+<div class="modal-box">
+
+<div class="modal-header">
+<h2>📋 Tarea</h2>
+<button class="close" onclick="closeDetail()">×</button>
+</div>
+
+<div id="detailContent"></div>
+
+<div class="modal-footer">
+<button class="btn btn-secondary" onclick="closeDetail()">Cerrar</button>
+<button id="detailEditButton" class="btn btn-primary">✏️ Editar</button>
+<button id="detailDeleteButton" class="btn btn-danger">🗑️ Eliminar</button>
+</div>
+
+</div>
+</div>
+
+<div id="rewardModal" class="modal">
+<div class="modal-box">
+
+<div class="modal-header">
+<h2 id="rewardModalTitle">Crear vale</h2>
+<button class="close" onclick="closeRewardModal()">×</button>
+</div>
+
+<div class="form-group">
+<label>Nombre del vale</label>
+<input id="rewardName" placeholder="Ejemplo: Elegir la película">
+</div>
+
+<div class="form-group">
+<label>Icono</label>
+<input id="rewardIcon" placeholder="🎬" maxlength="4">
+</div>
+
+<div class="form-group">
+<label>Precio en puntos</label>
+<input id="rewardPoints" type="number" min="1" value="50">
+</div>
+
+<div class="form-group">
+<label>Descripción</label>
+<textarea id="rewardDescription" placeholder="Explica qué consigue la persona al canjearlo"></textarea>
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-secondary" onclick="closeRewardModal()">Cancelar</button>
+<button class="btn btn-purple" onclick="saveReward()">Guardar vale</button>
+</div>
+
+</div>
+</div>
+
+<div id="settingsModal" class="modal">
+<div class="modal-box">
+
+<div class="modal-header">
+<h2>⚙️ Ajustes</h2>
+<button class="close" onclick="closeSettings()">×</button>
+</div>
+
+<div class="form-group">
+<label>Nombre de la familia</label>
+<input id="settingsFamilyName">
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-secondary" onclick="closeSettings()">Cancelar</button>
+<button class="btn btn-primary" onclick="saveSettings()">Guardar</button>
+</div>
+
+</div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const STORAGE_KEY="noEstamosSolos_v3";
 
 let data={
-  familyName:"",
-  members:[],
-  tasks:[],
-  rewards:[],
-  messages:[],
-  events:[],
-  shopping:[],
-  memories:[],
-  challenges:[],
-  achievements:[],
-  settings:{
-    notifications:true,
-    sound:true,
-    theme:"blue"
-  }
+familyName:"",
+members:[],
+tasks:[],
+rewards:[],
+subscription:false
 };
 
+let currentPage="pageHome";
+let selectedDate=localISO(new Date());
 let editingTaskId=null;
 let editingRewardId=null;
-let selectedDate="";
-let calendarDate=new Date();
-let setupMemberCounter=0;
+let detailTaskId=null;
 
 function $(id){
-  return document.getElementById(id);
+return document.getElementById(id);
 }
 
-function saveData(){
-  try{
-    localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
-  }catch(error){
-    console.error("No se han podido guardar los datos",error);
-  }
+function createId(){
+return Date.now().toString(36)+Math.random().toString(36).slice(2);
 }
 
-function loadData(){
-  try{
-    const saved=localStorage.getItem(STORAGE_KEY);
-    if(saved){
-      const parsed=JSON.parse(saved);
-      data={
-        ...data,
-        ...parsed,
-        settings:{
-          ...data.settings,
-          ...(parsed.settings||{})
-        }
-      };
-      return true;
-    }
-  }catch(error){
-    console.error("No se han podido cargar los datos",error);
-  }
-  return false;
-}
-
-function escapeHtml(value){
-  return String(value??"")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+function localISO(date){
+const y=date.getFullYear();
+const m=String(date.getMonth()+1).padStart(2,"0");
+const d=String(date.getDate()).padStart(2,"0");
+return `${y}-${m}-${d}`;
 }
 
 function todayISO(){
-  const d=new Date();
-  const y=d.getFullYear();
-  const m=String(d.getMonth()+1).padStart(2,"0");
-  const day=String(d.getDate()).padStart(2,"0");
-  return `${y}-${m}-${day}`;
+return localISO(new Date());
+}
+
+function saveData(){
+localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+}
+
+function loadData(){
+const saved=localStorage.getItem(STORAGE_KEY);
+
+if(saved){
+try{
+data=JSON.parse(saved);
+}catch(e){
+console.log(e);
+}
+}
+}function escapeHtml(value){
+return String(value??"")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 }
 
 function formatDate(dateString){
-  if(!dateString)return"";
-  const parts=dateString.split("-");
-  if(parts.length!==3)return dateString;
-  return `${parts[2]}/${parts[1]}/${parts[0]}`;
+if(!dateString)return"";
+const d=new Date(dateString+"T12:00:00");
+
+return d.toLocaleDateString("es-ES",{
+weekday:"long",
+day:"numeric",
+month:"long",
+year:"numeric"
+});
 }
 
-function createId(prefix="id"){
-  return prefix+"_"+Date.now()+"_"+Math.random()
-    .toString(36)
-    .slice(2,8);
+function formatHour(hour){
+if(hour===0)return"12:00 a. m.";
+if(hour<12)return`${hour}:00 a. m.`;
+if(hour===12)return"12:00 p. m.";
+return`${hour-12}:00 p. m.`;
 }
 
-function showScreen(id){
-  document.querySelectorAll(".screen").forEach(screen=>{
-    screen.classList.remove("active");
-  });
-  const target=$(id);
-  if(target)target.classList.add("active");
-}
-
-function openPage(page){
-  document.querySelectorAll(".page").forEach(item=>{
-    item.classList.remove("active");
-  });
-
-  document.querySelectorAll(".nav-button").forEach(button=>{
-    button.classList.remove("active");
-  });
-
-  const target=$("page-"+page);
-  if(target)target.classList.add("active");
-
-  const nav=document.querySelector(
-    `.nav-button[data-page="${page}"]`
-  );
-
-  if(nav)nav.classList.add("active");
-
-  renderCurrentPage(page);
-}
-
-function renderCurrentPage(page){
-  if(page==="home")renderHome();
-  if(page==="tasks")renderTasks();
-  if(page==="calendar")renderCalendar();
-  if(page==="family")renderFamily();
-  if(page==="rewards")renderRewards();
-  if(page==="more")renderMore();
-}
-
-function addSetupMember(){
-  const container=$("setupMembers");
-  if(!container)return;
-
-  const row=document.createElement("div");
-  row.className="member-row";
-  row.dataset.memberRow=setupMemberCounter++;
-
-  row.innerHTML=`
-    <input
-      type="text"
-      class="setup-member-name"
-      maxlength="40"
-      placeholder="Nombre">
-    <select class="setup-member-role">
-      <option value="adult">Adulto</option>
-      <option value="child">Niño/a</option>
-      <option value="other">Otro</option>
-    </select>
-    <button
-      type="button"
-      class="remove-member"
-      onclick="this.parentElement.remove()">
-      ×
-    </button>
-  `;
-
-  container.appendChild(row);
-}
-
-function createFamily(){
-  const name=$("familyName").value.trim();
-
-  if(!name){
-    alert("Escribe un nombre para la familia.");
-    $("familyName").focus();
-    return;
-  }
-
-  const rows=[
-    ...document.querySelectorAll(".member-row")
-  ];
-
-  const members=[];
-
-  rows.forEach(row=>{
-    const nameInput=row.querySelector(
-      ".setup-member-name"
-    );
-    const roleInput=row.querySelector(
-      ".setup-member-role"
-    );
-
-    const memberName=nameInput
-      ? nameInput.value.trim()
-      :"";
-
-    if(memberName){
-      members.push({
-        id:createId("member"),
-        name:memberName,
-        role:roleInput
-          ?roleInput.value
-          :"other",
-        avatar:"👤",
-        points:0,
-        redeemed:0,
-        createdAt:new Date().toISOString()
-      });
-    }
-  });
-
-  if(members.length===0){
-    alert("Añade al menos un miembro de la familia.");
-    return;
-  }
-
-  data.familyName=name;
-  data.members=members;
-
-  if(!Array.isArray(data.tasks))data.tasks=[];
-  if(!Array.isArray(data.rewards))data.rewards=[];
-
-  if(data.rewards.length===0){
-    data.rewards=[
-      {
-        id:createId("reward"),
-        icon:"🎬",
-        name:"Elegir la película",
-        points:50,
-        active:true
-      },
-      {
-        id:createId("reward"),
-        icon:"🍕",
-        name:"Elegir la cena",
-        points:70,
-        active:true
-      },
-      {
-        id:createId("reward"),
-        icon:"🎮",
-        name:"Una tarde especial",
-        points:100,
-        active:true
-      }
-    ];
-  }
-
-  saveData();
-  showScreen("app");
-  updateHeader();
-  renderAll();
-}
-
-function updateHeader(){
-  const title=$("headerFamilyName");
-  if(title){
-    title.textContent=
-      data.familyName||"Nuestra familia";
-  }
-}
-
-function renderAll(){
-  updateHeader();
-  renderHome();
-  renderTasks();
-  renderCalendar();
-  renderFamily();
-  renderRewards();
-  renderMore();
-}
-
-function renderHome(){
-  const total=data.tasks.length;
-  const completed=data.tasks.filter(
-    task=>task.done
-  ).length;
-
-  const points=data.members.reduce(
-    (sum,member)=>sum+(Number(member.points)||0),
-    0
-  );
-
-  const members=data.members.length;
-
-  if($("statTasks"))$("statTasks").textContent=total;
-  if($("statCompleted"))$("statCompleted").textContent=completed;
-  if($("statPoints"))$("statPoints").textContent=points;
-  if($("statMembers"))$("statMembers").textContent=members;
-
-  const greeting=$("homeGreeting");
-
-  if(greeting){
-    greeting.textContent=data.familyName
-      ?`¡Hola, ${data.familyName}! 👋`
-      :"¡Hola, familia! 👋";
-  }
-
-  renderTodayTasks();
-}
-
-function renderTodayTasks(){
-  const container=$("todayTasks");
-  if(!container)return;
-
-  const today=todayISO();
-
-  const tasks=data.tasks
-    .filter(task=>task.date===today)
-    .sort((a,b)=>
-      String(a.time||"").localeCompare(
-        String(b.time||"")
-      )
-    );
-
-  if(tasks.length===0){
-    container.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-icon">🌱</div>
-        Todavía no hay tareas para hoy.
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML=tasks.map(task=>{
-    const member=data.members.find(
-      member=>member.id===task.memberId
-    );
-
-    const person=member
-      ?escapeHtml(member.name)
-      :"Sin asignar";
-
-    return`
-      <div class="task-home-row">
-        <div>
-          <strong>${escapeHtml(task.name)}</strong>
-          <small>
-            ${task.time||"Sin hora"} ·
-            ${person} ·
-            ⭐ ${Number(task.points)||0}
-          </small>
-        </div>
-        <button
-          class="secondary-button"
-          onclick="toggleTask('${task.id}')">
-          ${task.done?"↩️":"✅"}
-        </button>
-      </div>
-    `;
-  }).join("");
-}
-
-function renderTasks(){
-  const container=$("tasksList");
-  if(!container)return;
-
-  if(data.tasks.length===0){
-    container.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-icon">📋</div>
-        <p>No hay tareas todavía.</p>
-        <br>
-        <button
-          class="primary-button"
-          onclick="openTaskModal()">
-          ➕ Crear primera tarea
-        </button>
-      </div>
-    `;
-    return;
-  }
-
-  const tasks=[...data.tasks].sort((a,b)=>{
-    const dateA=`${a.date||""} ${a.time||""}`;
-    const dateB=`${b.date||""} ${b.time||""}`;
-    return dateA.localeCompare(dateB);
-  });
-
-  container.innerHTML=tasks.map(task=>{
-    const member=data.members.find(
-      member=>member.id===task.memberId
-    );
-
-    const person=member
-      ?escapeHtml(member.name)
-      :"Sin asignar";
-
-    return`
-      <div class="task-row">
-        <button
-          class="task-check"
-          onclick="toggleTask('${task.id}')">
-          ${task.done?"☑️":"⬜"}
-        </button>
-        <div class="task-info">
-          <strong class="${task.done?"completed":""}">
-            ${escapeHtml(task.name)}
-          </strong>
-          <small>
-            📅 ${formatDate(task.date)}
-            · ${task.time||"Sin hora"}
-            · 👤 ${person}
-            · ⭐ ${Number(task.points)||0}
-          </small>
-        </div>
-        <div class="task-actions">
-          <button
-            class="icon-button"
-            onclick="editTask('${task.id}')">
-            ✏️
-          </button>
-          <button
-            class="icon-button"
-            onclick="deleteTask('${task.id}')">
-            🗑️
-          </button>
-        </div>
-      </div>
-    `;
-  }).join("");
-}
-
-function renderFamily(){
-  const container=$("familyMembers");
-  if(!container)return;
-
-  if(data.members.length===0){
-    container.innerHTML=`
-      <div class="empty-state">
-        No hay miembros registrados.
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML=data.members.map(member=>{
-    const completed=data.tasks.filter(
-      task=>task.memberId===member.id&&task.done
-    ).length;
-
-    return`
-      <div class="member-card">
-        <div class="member-avatar">
-          ${escapeHtml(member.avatar||"👤")}
-        </div>
-        <div class="member-info">
-          <strong>${escapeHtml(member.name)}</strong>
-          <span>
-            ${member.role==="adult"
-              ?"Adulto"
-              :member.role==="child"
-              ?"Niño/a"
-              :"Miembro"}
-          </span>
-          <small>
-            ${completed} tareas ·
-            ⭐ ${Number(member.points)||0} puntos
-          </small>
-        </div>
-      </div>
-    `;
-  }).join("");
-}
-
-function renderRewards(){
-  const container=$("rewardsList");
-  if(!container)return;
-
-  if(data.rewards.length===0){
-    container.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-icon">🎁</div>
-        Todavía no hay premios.
-      </div>
-    `;
-    return;
-  }
-
-  container.innerHTML=data.rewards.map(reward=>`
-    <div class="reward-card">
-      <div class="reward-icon">
-        ${escapeHtml(reward.icon||"🎁")}
-      </div>
-      <div class="reward-info">
-        <strong>${escapeHtml(reward.name)}</strong>
-        <span>⭐ ${Number(reward.points)||0} puntos</span>
-      </div>
-      <button
-        class="icon-button"
-        onclick="editReward('${reward.id}')">
-        ✏️
-      </button>
-      <button
-        class="icon-button"
-        onclick="deleteReward('${reward.id}')">
-        🗑️
-      </button>
-    </div>
-  `).join("");
-}
-
-function renderMore(){
-  const container=$("page-more");
-  if(!container)return;
-}
-  </script><script>
-function openTaskModal(){
-  editingTaskId=null;
-  const modal=$("taskModal");
-  if(!modal)return;
-  $("taskModalTitle").textContent="Nueva tarea";
-  $("taskName").value="";
-  $("taskDate").value=selectedDate||todayISO();
-  $("taskTime").value="18:00";
-  $("taskPoints").value="10";
-  fillMemberSelect("taskPerson","");
-  modal.classList.add("show");
-}
-function closeTaskModal(){
-  const modal=$("taskModal");
-  if(modal)modal.classList.remove("show");
-}
-function fillMemberSelect(id,selected){
-  const select=$(id);
-  if(!select)return;
-  select.innerHTML=`<option value="">Sin asignar</option>`;
-  data.members.forEach(member=>{
-    const option=document.createElement("option");
-    option.value=member.id;
-    option.textContent=member.name;
-    if(member.id===selected)option.selected=true;
-    select.appendChild(option);
-  });
-}
-function saveTask(){
-  const name=$("taskName").value.trim();
-  const date=$("taskDate").value;
-  const time=$("taskTime").value;
-  const points=Math.max(0,Number($("taskPoints").value)||0);
-  const memberId=$("taskPerson").value;
-  if(!name){
-    alert("Escribe el nombre de la tarea.");
-    return;
-  }
-  if(!date){
-    alert("Elige una fecha.");
-    return;
-  }
-  if(editingTaskId){
-    const task=data.tasks.find(t=>t.id===editingTaskId);
-    if(task){
-      task.name=name;
-      task.date=date;
-      task.time=time;
-      task.points=points;
-      task.memberId=memberId;
-    }
-  }else{
-    data.tasks.push({
-      id:createId("task"),
-      name:name,
-      date:date,
-      time:time,
-      points:points,
-      memberId:memberId,
-      done:false,
-      completedAt:null,
-      createdAt:new Date().toISOString()
-    });
-  }
-  saveData();
-  closeTaskModal();
-  renderAll();
-}
-function editTask(id){
-  const task=data.tasks.find(t=>t.id===id);
-  if(!task)return;
-  editingTaskId=id;
-  $("taskModalTitle").textContent="Editar tarea";
-  $("taskName").value=task.name||"";
-  $("taskDate").value=task.date||todayISO();
-  $("taskTime").value=task.time||"";
-  $("taskPoints").value=Number(task.points)||0;
-  fillMemberSelect("taskPerson",task.memberId||"");
-  $("taskModal").classList.add("show");
-}
-function deleteTask(id){
-  const task=data.tasks.find(t=>t.id===id);
-  if(!task)return;
-  if(!confirm(`¿Quieres eliminar "${task.name}"?`))return;
-  if(task.done){
-    removePointsFromMember(task.memberId,Number(task.points)||0);
-  }
-  data.tasks=data.tasks.filter(t=>t.id!==id);
-  saveData();
-  renderAll();
-}
-function toggleTask(id){
-  const task=data.tasks.find(t=>t.id===id);
-  if(!task)return;
-  task.done=!task.done;
-  if(task.done){
-    task.completedAt=new Date().toISOString();
-    addPointsToMember(task.memberId,Number(task.points)||0);
-  }else{
-    removePointsFromMember(task.memberId,Number(task.points)||0);
-    task.completedAt=null;
-  }
-  saveData();
-  renderAll();
-}
-function addPointsToMember(memberId,points){
-  if(!memberId)return;
-  const member=data.members.find(m=>m.id===memberId);
-  if(member){
-    member.points=(Number(member.points)||0)+points;
-  }
-}
-function removePointsFromMember(memberId,points){
-  if(!memberId)return;
-  const member=data.members.find(m=>m.id===memberId);
-  if(member){
-    member.points=Math.max(
-      0,
-      (Number(member.points)||0)-points
-    );
-  }
-}
-function openRewardModal(){
-  editingRewardId=null;
-  $("rewardModalTitle").textContent="Nuevo premio";
-  $("rewardName").value="";
-  $("rewardIcon").value="🎁";
-  $("rewardPoints").value="50";
-  $("rewardModal").classList.add("show");
-}
-function closeRewardModal(){
-  const modal=$("rewardModal");
-  if(modal)modal.classList.remove("show");
-}
-function saveReward(){
-  const name=$("rewardName").value.trim();
-  const icon=$("rewardIcon").value.trim()||"🎁";
-  const points=Math.max(
-    1,
-    Number($("rewardPoints").value)||1
-  );
-  if(!name){
-    alert("Escribe el nombre del premio.");
-    return;
-  }
-  if(editingRewardId){
-    const reward=data.rewards.find(
-      r=>r.id===editingRewardId
-    );
-    if(reward){
-      reward.name=name;
-      reward.icon=icon;
-      reward.points=points;
-    }
-  }else{
-    data.rewards.push({
-      id:createId("reward"),
-      name:name,
-      icon:icon,
-      points:points,
-      active:true
-    });
-  }
-  saveData();
-  closeRewardModal();
-  renderRewards();
-}
-function editReward(id){
-  const reward=data.rewards.find(r=>r.id===id);
-  if(!reward)return;
-  editingRewardId=id;
-  $("rewardModalTitle").textContent="Editar premio";
-  $("rewardName").value=reward.name||"";
-  $("rewardIcon").value=reward.icon||"🎁";
-  $("rewardPoints").value=Number(reward.points)||0;
-  $("rewardModal").classList.add("show");
-}
-function deleteReward(id){
-  const reward=data.rewards.find(r=>r.id===id);
-  if(!reward)return;
-  if(!confirm(`¿Eliminar "${reward.name}"?`))return;
-  data.rewards=data.rewards.filter(r=>r.id!==id);
-  saveData();
-  renderRewards();
-}
-function redeemReward(rewardId,memberId){
-  const reward=data.rewards.find(
-    r=>r.id===rewardId
-  );
-  const member=data.members.find(
-    m=>m.id===memberId
-  );
-  if(!reward||!member)return;
-  const cost=Number(reward.points)||0;
-  const current=Number(member.points)||0;
-  if(current<cost){
-    alert(
-      `${member.name} todavía no tiene suficientes puntos.`
-    );
-    return;
-  }
-  if(!confirm(
-    `¿Canjear "${reward.name}" por ${cost} puntos?`
-  ))return;
-  member.points=current-cost;
-  member.redeemed=(Number(member.redeemed)||0)+1;
-  saveData();
-  renderAll();
-}
-function openSettings(){
-  const modal=$("settingsModal");
-  if(modal)modal.classList.add("show");
-}
-function closeSettings(){
-  const modal=$("settingsModal");
-  if(modal)modal.classList.remove("show");
-}
-function resetFamily(){
-  if(!confirm(
-    "¿Seguro que quieres borrar todos los datos de la familia?"
-  ))return;
-  localStorage.removeItem(STORAGE_KEY);
-  location.reload();
-}
-function exportData(){
-  const content=JSON.stringify(data,null,2);
-  const blob=new Blob(
-    [content],
-    {type:"application/json"}
-  );
-  const url=URL.createObjectURL(blob);
-  const link=document.createElement("a");
-  link.href=url;
-  link.download="no-estamos-solos.json";
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  URL.revokeObjectURL(url);
-}<script>
-function renderCalendar(){
-  const container=$("calendarContainer");
-  if(!container)return;
-
-  const year=calendarDate.getFullYear();
-  const month=calendarDate.getMonth();
-
-  const monthNames=[
-    "Enero","Febrero","Marzo","Abril","Mayo","Junio",
-    "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"
-  ];
-
-  const firstDay=new Date(year,month,1);
-  const lastDay=new Date(year,month+1,0);
-
-  let start=firstDay.getDay();
-  if(start===0)start=7;
-
-  const daysInMonth=lastDay.getDate();
-  const previousLastDay=
-    new Date(year,month,0).getDate();
-
-  let html=`
-    <div class="calendar-header">
-      <button
-        class="secondary-button"
-        onclick="changeCalendarMonth(-1)">
-        ◀
-      </button>
-
-      <div class="calendar-title">
-        <h3>${monthNames[month]} ${year}</h3>
-      </div>
-
-      <button
-        class="secondary-button"
-        onclick="changeCalendarMonth(1)">
-        ▶
-      </button>
-    </div>
-
-    <div class="calendar-actions">
-      <button
-        class="secondary-button"
-        onclick="goToToday()">
-        📍 Hoy
-      </button>
-
-      <button
-        class="primary-button"
-        style="width:auto"
-        onclick="openTaskModal()">
-        ➕ Añadir tarea
-      </button>
-    </div>
-
-    <div class="calendar-weekdays">
-      <div>L</div>
-      <div>M</div>
-      <div>X</div>
-      <div>J</div>
-      <div>V</div>
-      <div>S</div>
-      <div>D</div>
-    </div>
-
-    <div class="calendar-grid">
-  `;
-
-  let cellCount=0;
-
-  for(let i=start-1;i>0;i--){
-    const day=previousLastDay-i+1;
-    html+=calendarDayHtml(
-      day,
-      year,
-      month-1,
-      true
-    );
-    cellCount++;
-  }
-
-  for(let day=1;day<=daysInMonth;day++){
-    html+=calendarDayHtml(
-      day,
-      year,
-      month,
-      false
-    );
-    cellCount++;
-  }
-
-  let nextDay=1;
-  while(cellCount%7!==0){
-    html+=calendarDayHtml(
-      nextDay,
-      year,
-      month+1,
-      true
-    );
-    nextDay++;
-    cellCount++;
-  }
-
-  html+=`
-    </div>
-  `;
-
-  container.innerHTML=html;
-}
-
-function calendarDayHtml(
-  day,
-  year,
-  month,
-  otherMonth
-){
-  const date=new Date(year,month,day);
-
-  const iso=localDateISO(date);
-
-  const tasks=data.tasks.filter(
-    task=>task.date===iso
-  );
-
-  const today=iso===todayISO();
-
-  const classes=[
-    "calendar-day",
-    otherMonth?"other-month":"",
-    today?"today":""
-  ].filter(Boolean).join(" ");
-
-  let taskHtml="";
-
-  tasks.slice(0,3).forEach(task=>{
-    const member=data.members.find(
-      m=>m.id===task.memberId
-    );
-
-    const name=member
-      ?member.name
-      :"Sin asignar";
-
-    taskHtml+=`
-      <div
-        class="calendar-task ${task.done?"done":""}"
-        title="${escapeHtml(task.name)}">
-        <span>
-          ${task.done?"✅":"📌"}
-        </span>
-        <b>
-          ${escapeHtml(task.time||"")}
-        </b>
-        ${escapeHtml(task.name)}
-      </div>
-    `;
-  });
-
-  if(tasks.length>3){
-    taskHtml+=`
-      <div class="calendar-more">
-        +${tasks.length-3} más
-      </div>
-    `;
-  }
-
-  return`
-    <button
-      type="button"
-      class="${classes}"
-      onclick="selectCalendarDate('${iso}')">
-
-      <div class="calendar-number">
-        ${day}
-      </div>
-
-      <div class="calendar-task-list">
-        ${taskHtml}
-      </div>
-
-    </button>
-  `;
-}
-
-function localDateISO(date){
-  const y=date.getFullYear();
-  const m=String(date.getMonth()+1).padStart(2,"0");
-  const d=String(date.getDate()).padStart(2,"0");
-  return`${y}-${m}-${d}`;
-}
-
-function changeCalendarMonth(amount){
-  calendarDate.setMonth(
-    calendarDate.getMonth()+amount
-  );
-  renderCalendar();
-}
-
-function goToToday(){
-  calendarDate=new Date();
-  selectedDate=todayISO();
-  renderCalendar();
-}
-
-function selectCalendarDate(date){
-  selectedDate=date;
-
-  const tasks=data.tasks.filter(
-    task=>task.date===date
-  );
-
-  if(tasks.length===0){
-    if(confirm(
-      `No hay tareas el ${formatDate(date)}. ¿Quieres crear una?`
-    )){
-      openTaskModal();
-    }
-    return;
-  }
-
-  showDateTasks(date);
-}
-
-function showDateTasks(date){
-  const tasks=data.tasks
-    .filter(task=>task.date===date)
-    .sort((a,b)=>
-      String(a.time||"").localeCompare(
-        String(b.time||"")
-      )
-    );
-
-  let message=
-    `Tareas del ${formatDate(date)}:\n\n`;
-
-  tasks.forEach((task,index)=>{
-    const member=data.members.find(
-      m=>m.id===task.memberId
-    );
-
-    message+=
-      `${index+1}. ${task.time||"--:--"} - `+
-      `${task.name} - `+
-      `${member?member.name:"Sin asignar"} - `+
-      `${task.points||0} puntos`+
-      `${task.done?" ✅":""}\n`;
-  });
-
-  alert(message);
-}
-
-function addTaskForDate(date){
-  selectedDate=date;
-  openTaskModal();
-}
-
-function getTasksForDate(date){
-  return data.tasks.filter(
-    task=>task.date===date
-  );
+function getMember(memberId){
+return data.members.find(m=>m.id===memberId);
 }
 
 function getMemberName(memberId){
-  const member=data.members.find(
-    m=>m.id===memberId
-  );
-  return member?member.name:"Sin asignar";
+const member=getMember(memberId);
+return member?member.name:"Sin asignar";
 }
 
-function getMemberPoints(memberId){
-  const member=data.members.find(
-    m=>m.id===memberId
-  );
-  return member
-    ?Number(member.points)||0
-    :0;
-}
+function showPage(pageId,button){
+currentPage=pageId;
 
-function getCompletedTasks(memberId=null){
-  return data.tasks.filter(task=>{
-    if(!task.done)return false;
-    if(memberId&&task.memberId!==memberId){
-      return false;
-    }
-    return true;
-  });
-}
-
-function getPendingTasks(memberId=null){
-  return data.tasks.filter(task=>{
-    if(task.done)return false;
-    if(memberId&&task.memberId!==memberId){
-      return false;
-    }
-    return true;
-  });
-}
-
-function calculateCompletion(){
-  if(data.tasks.length===0)return 0;
-  const completed=data.tasks.filter(
-    task=>task.done
-  ).length;
-  return Math.round(
-    completed/data.tasks.length*100
-  );
-}
-
-function getWeekStart(date=new Date()){
-  const d=new Date(date);
-  const day=d.getDay();
-  const diff=day===0?-6:1-day;
-  d.setDate(d.getDate()+diff);
-  d.setHours(0,0,0,0);
-  return d;
-}
-
-function getWeekTasks(date=new Date()){
-  const start=getWeekStart(date);
-  const end=new Date(start);
-  end.setDate(end.getDate()+6);
-
-  const startIso=localDateISO(start);
-  const endIso=localDateISO(end);
-
-  return data.tasks.filter(task=>
-    task.date>=startIso&&task.date<=endIso
-  );
-}
-
-function getMonthTasks(date=new Date()){
-  const year=date.getFullYear();
-  const month=date.getMonth();
-
-  const start=localDateISO(
-    new Date(year,month,1)
-  );
-
-  const end=localDateISO(
-    new Date(year,month+1,0)
-  );
-
-  return data.tasks.filter(task=>
-    task.date>=start&&task.date<=end
-  );
-}
-
-function getMemberCompletedPoints(memberId){
-  return data.tasks
-    .filter(task=>
-      task.done&&
-      task.memberId===memberId
-    )
-    .reduce(
-      (sum,task)=>sum+(Number(task.points)||0),
-      0
-    );
-}
-
-function getMemberPendingPoints(memberId){
-  return data.tasks
-    .filter(task=>
-      !task.done&&
-      task.memberId===memberId
-    )
-    .reduce(
-      (sum,task)=>sum+(Number(task.points)||0),
-      0
-    );
-}
-
-function taskExistsOnDate(name,date,memberId){
-  return data.tasks.some(task=>
-    task.name.trim().toLowerCase()===
-    name.trim().toLowerCase()&&
-    task.date===date&&
-    task.memberId===memberId
-  );
-}
-
-function duplicateTask(task,newDate){
-  if(!task)return;
-
-  data.tasks.push({
-    ...task,
-    id:createId("task"),
-    date:newDate,
-    done:false,
-    completedAt:null,
-    createdAt:new Date().toISOString()
-  });
-}
-
-function copyTaskToTomorrow(id){
-  const task=data.tasks.find(
-    item=>item.id===id
-  );
-  if(!task)return;
-
-  const date=new Date(task.date+"T12:00:00");
-  date.setDate(date.getDate()+1);
-
-  const newDate=localDateISO(date);
-
-  duplicateTask(task,newDate);
-  saveData();
-  renderAll();
-}
-
-function copyTaskToNextWeek(id){
-  const task=data.tasks.find(
-    item=>item.id===id
-  );
-  if(!task)return;
-
-  const date=new Date(task.date+"T12:00:00");
-  date.setDate(date.getDate()+7);
-
-  duplicateTask(task,localDateISO(date));
-  saveData();
-  renderAll();
-}
-
-function moveTaskToDate(id,newDate){
-  const task=data.tasks.find(
-    item=>item.id===id
-  );
-
-  if(!task||!newDate)return;
-
-  task.date=newDate;
-  saveData();
-  renderAll();
-}
-
-function sortTasksByDate(tasks){
-  return[...tasks].sort((a,b)=>{
-    const aValue=
-      `${a.date||""} ${a.time||""}`;
-    const bValue=
-      `${b.date||""} ${b.time||""}`;
-    return aValue.localeCompare(bValue);
-  });
-}
-
-function getTodayTasksForMember(memberId){
-  const today=todayISO();
-
-  return data.tasks.filter(task=>
-    task.date===today&&
-    task.memberId===memberId
-  );
-}
-
-function getNextTask(){
-  const now=new Date();
-
-  const pending=data.tasks
-    .filter(task=>!task.done&&task.date)
-    .sort((a,b)=>{
-      const dateA=new Date(
-        `${a.date}T${a.time||"23:59"}`
-      );
-      const dateB=new Date(
-        `${b.date}T${b.time||"23:59"}`
-      );
-      return dateA-dateB;
-    });
-
-  return pending.find(task=>{
-    const date=new Date(
-      `${task.date}T${task.time||"00:00"}`
-    );
-    return date>=now;
-  })||pending[0]||null;
-}
-</script><style>
-.calendar-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-.calendar-title{text-align:center;flex:1}
-.calendar-title h3{margin:0;font-size:20px}
-.calendar-actions{display:flex;gap:10px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
-.calendar-weekdays,.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-.calendar-weekdays div{text-align:center;font-weight:700;font-size:12px;padding:6px}
-.calendar-day{min-height:92px;border:1px solid #dfe5ef;background:#fff;border-radius:12px;padding:7px;text-align:left;cursor:pointer;overflow:hidden}
-.calendar-day:hover{border-color:#315c9b;transform:translateY(-1px)}
-.calendar-day.other-month{opacity:.45}
-.calendar-day.today{box-shadow:inset 0 0 0 2px #315c9b}
-.calendar-number{font-weight:800;margin-bottom:5px}
-.calendar-task-list{display:flex;flex-direction:column;gap:3px}
-.calendar-task{font-size:10px;background:#edf4ff;border-radius:6px;padding:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.calendar-task.done{opacity:.6;text-decoration:line-through}
-.calendar-more{font-size:10px;color:#315c9b;font-weight:700;margin-top:3px}
-.task-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:15px}
-.task-toolbar input,.task-toolbar select{flex:1;min-width:150px}
-.task-card{background:#fff;border:1px solid #e1e6ef;border-radius:15px;padding:14px;margin-bottom:10px}
-.task-card.completed{opacity:.7}
-.task-card-top{display:flex;align-items:flex-start;gap:10px}
-.task-check{width:24px;height:24px;flex:none;cursor:pointer}
-.task-info{flex:1;min-width:0}
-.task-name{font-weight:800;font-size:16px;margin-bottom:5px}
-.task-meta{font-size:12px;color:#667085;display:flex;gap:8px;flex-wrap:wrap}
-.task-actions{display:flex;gap:5px;flex-wrap:wrap}
-.icon-button{border:0;background:#f0f3f8;border-radius:9px;padding:7px;cursor:pointer}
-.icon-button:hover{background:#e3e9f2}
-.member-card{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e1e6ef;border-radius:14px;padding:12px;margin-bottom:9px}
-.member-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#eaf1ff;font-size:22px;flex:none}
-.member-main{flex:1}
-.member-name{font-weight:800}
-.member-role{font-size:12px;color:#667085}
-.points-badge{font-weight:800;color:#315c9b}
-.progress{height:9px;background:#e7ebf2;border-radius:99px;overflow:hidden;margin-top:7px}
-.progress>span{display:block;height:100%;background:#315c9b;border-radius:99px}
-.reward-card{background:#fff;border:1px solid #e1e6ef;border-radius:15px;padding:15px;margin-bottom:10px}
-.reward-row{display:flex;align-items:center;gap:12px}
-.reward-icon{font-size:30px}
-.reward-main{flex:1}
-.reward-name{font-weight:800}
-.reward-cost{font-size:12px;color:#667085}
-.reward-buttons{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.empty-state{text-align:center;padding:30px 15px;color:#667085}
-.empty-state .empty-icon{font-size:38px;margin-bottom:8px}
-.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:15px}
-.stat-card{background:#fff;border:1px solid #e1e6ef;border-radius:14px;padding:14px}
-.stat-label{font-size:12px;color:#667085}
-.stat-value{font-size:25px;font-weight:900;margin-top:3px}
-.modal-backdrop{position:fixed;inset:0;background:rgba(20,30,45,.48);display:none;align-items:center;justify-content:center;padding:18px;z-index:1000}
-.modal-backdrop.open{display:flex}
-.modal{width:min(520px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.2)}
-.modal-header{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}
-.modal-header h3{margin:0}
-.close-button{border:0;background:#eef1f6;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:18px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
-.form-group.full{grid-column:1/-1}
-.form-group label{font-size:13px;font-weight:700}
-.form-group input,.form-group select,.form-group textarea{width:100%;box-sizing:border-box}
-.form-actions{display:flex;gap:9px;justify-content:flex-end;flex-wrap:wrap;margin-top:10px}
-.modal-note{font-size:12px;color:#667085;background:#f5f7fa;border-radius:10px;padding:9px;margin-bottom:12px}
-</style>
-<script>
-function renderTaskList(){
-  const box=$("taskList");
-  if(!box)return;
-  const search=($("taskSearch")?.value||"").trim().toLowerCase();
-  const filter=$("taskFilter")?.value||"all";
-  let tasks=sortTasksByDate(data.tasks);
-  if(search){
-    tasks=tasks.filter(task=>
-      task.name.toLowerCase().includes(search)
-    );
-  }
-  if(filter==="pending"){
-    tasks=tasks.filter(task=>!task.done);
-  }
-  if(filter==="done"){
-    tasks=tasks.filter(task=>task.done);
-  }
-  if(filter==="today"){
-    tasks=tasks.filter(task=>task.date===todayISO());
-  }
-  if(filter==="week"){
-    const week=getWeekTasks();
-    const ids=new Set(week.map(task=>task.id));
-    tasks=tasks.filter(task=>ids.has(task.id));
-  }
-  if(!tasks.length){
-    box.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-icon">📋</div>
-        <strong>No hay tareas que mostrar</strong>
-        <p>Crea una tarea y asígnala a una persona de la familia.</p>
-      </div>`;
-    return;
-  }
-  box.innerHTML=tasks.map(task=>{
-    const member=getMemberName(task.memberId);
-    const dateText=task.date?formatDate(task.date):"Sin fecha";
-    return`
-      <article class="task-card ${task.done?"completed":""}">
-        <div class="task-card-top">
-          <input class="task-check" type="checkbox"
-            ${task.done?"checked":""}
-            onchange="toggleTask('${task.id}')">
-          <div class="task-info">
-            <div class="task-name">${escapeHtml(task.name)}</div>
-            <div class="task-meta">
-              <span>📅 ${escapeHtml(dateText)}</span>
-              <span>🕐 ${escapeHtml(task.time||"--:--")}</span>
-              <span>👤 ${escapeHtml(member)}</span>
-              <span>⭐ ${Number(task.points)||0}</span>
-            </div>
-          </div>
-          <div class="task-actions">
-            <button class="icon-button" onclick="editTask('${task.id}')">✏️</button>
-            <button class="icon-button" onclick="deleteTask('${task.id}')">🗑️</button>
-          </div>
-        </div>
-      </article>`;
-  }).join("");
-}
-function refreshTaskFilters(){
-  renderTaskList();
-}
-function clearTaskSearch(){
-  const input=$("taskSearch");
-  if(input)input.value="";
-  renderTaskList();
-}
-function openQuickTask(){
-  selectedDate=todayISO();
-  openTaskModal();
-}
-function openTaskForSelectedDate(){
-  openTaskModal();
-}
-function renderCalendarAndTasks(){renderCalendar();
-  renderTaskList();
-}
-function formatLongDate(iso){
-  if(!iso)return"";
-  const d=new Date(iso+"T12:00:00");
-  return d.toLocaleDateString("es-ES",{
-    weekday:"long",
-    day:"numeric",
-    month:"long",
-    year:"numeric"
-  });
-}
-function getTodaySummary(){
-  const tasks=getTasksForDate(todayISO());
-  const done=tasks.filter(task=>task.done).length;
-  return{total:tasks.length,done,pending:tasks.length-done};
-}
-function renderHomeStats(){
-  const summary=getTodaySummary();
-  const total=$("homeTotalTasks");
-  const done=$("homeDoneTasks");
-  const points=$("homePoints");
-  const percent=$("homePercent");
-  if(total)total.textContent=summary.total;
-  if(done)done.textContent=summary.done;
-  if(points)points.textContent=data.members.reduce(
-    (sum,m)=>sum+getMemberPoints(m.id),0
-  );
-  if(percent)percent.textContent=calculateCompletion()+"%";
-}
-function renderFamilyProgress(){
-  const box=$("familyProgress");
-  if(!box)return;
-  if(!data.members.length){
-    box.innerHTML=`<div class="empty-state"><div class="empty-icon">👨‍👩‍👧</div><strong>Aún no hay personas</strong><p>Configura la familia para empezar.</p></div>`;
-    return;
-  }
-  box.innerHTML=data.members.map(member=>{
-    const points=getMemberPoints(member.id);
-    const completed=getMemberCompletedPoints(member.id);
-    const pending=getMemberPendingPoints(member.id);
-    const max=Math.max(points,100);
-    const percent=Math.min(100,Math.round(points/max*100));
-    return`
-      <div class="member-card">
-        <div class="member-avatar">${escapeHtml(member.avatar||"🙂")}</div>
-        <div class="member-main">
-          <div class="member-name">${escapeHtml(member.name)}</div>
-          <div class="member-role">${escapeHtml(member.role||"Miembro de la familia")}</div>
-          <div class="progress"><span style="width:${percent}%"></span></div>
-          <div class="task-meta">
-            <span>⭐ ${points} puntos</span>
-            <span>✅ ${completed}</span>
-            <span>⏳ ${pending}</span>
-          </div>
-        </div>
-      </div>`;
-  }).join("");
-}
-</script><!-- PARTE 6 -->
-<div id="taskModal" class="modal-backdrop">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 id="taskModalTitle">➕ Nueva tarea</h3>
-      <button class="close-button" onclick="closeTaskModal()">×</button>
-    </div>
-    <div class="modal-note">
-      Puedes elegir la fecha, la hora, la persona y los puntos de esta tarea.
-    </div>
-    <div class="form-grid">
-      <div class="form-group full">
-        <label for="taskName">Nombre de la tarea</label>
-        <input id="taskName" type="text" placeholder="Ej.: Ordenar la habitación">
-      </div>
-      <div class="form-group">
-        <label for="taskDate">Fecha</label>
-        <input id="taskDate" type="date">
-      </div>
-      <div class="form-group">
-        <label for="taskTime">Hora</label>
-        <input id="taskTime" type="time">
-      </div>
-      <div class="form-group">
-        <label for="taskPerson">Persona</label>
-        <select id="taskPerson"></select>
-      </div>
-      <div class="form-group">
-        <label for="taskPoints">Puntos</label>
-        <input id="taskPoints" type="number" min="0" step="1" value="10">
-      </div>
-      <div class="form-group full">
-        <label for="taskRepeat">Repetición</label>
-        <select id="taskRepeat">
-          <option value="none">No repetir</option>
-          <option value="daily">Cada día</option>
-          <option value="weekly">Cada semana</option>
-          <option value="monthly">Cada mes</option>
-        </select>
-      </div>
-      <div class="form-group full">
-        <label for="taskNotes">Notas</label>
-        <textarea id="taskNotes" rows="3" placeholder="Añade una nota opcional"></textarea>
-      </div>
-    </div>
-    <div class="form-actions">
-      <button class="secondary-button" onclick="closeTaskModal()">Cancelar</button>
-      <button class="primary-button" onclick="saveTask()">Guardar tarea</button>
-    </div>
-  </div>
-</div>
-
-<div id="rewardModal" class="modal-backdrop">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 id="rewardModalTitle">🎁 Nuevo premio</h3>
-      <button class="close-button" onclick="closeRewardModal()">×</button>
-    </div>
-    <div class="modal-note">
-      Los premios los puede crear y modificar la familia.
-    </div>
-    <div class="form-group">
-      <label for="rewardName">Nombre del premio</label>
-      <input id="rewardName" type="text" placeholder="Ej.: Elegir la película">
-    </div>
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="rewardIcon">Icono</label>
-        <input id="rewardIcon" type="text" value="🎁" maxlength="4">
-      </div>
-      <div class="form-group">
-        <label for="rewardPoints">Puntos necesarios</label>
-        <input id="rewardPoints" type="number" min="1" value="50">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="rewardDescription">Descripción</label>
-      <textarea id="rewardDescription" rows="3" placeholder="Describe el premio"></textarea>
-    </div>
-    <div class="form-actions">
-      <button class="secondary-button" onclick="closeRewardModal()">Cancelar</button>
-      <button class="primary-button" onclick="saveReward()">Guardar premio</button>
-    </div>
-  </div>
-</div>
-
-<div id="settingsModal" class="modal-backdrop">
-  <div class="modal">
-    <div class="modal-header">
-      <h3>⚙️ Configuración</h3>
-      <button class="close-button" onclick="closeSettings()">×</button>
-    </div>
-    <div class="form-group">
-      <label for="settingsFamilyName">Nombre de la familia</label>
-      <input id="settingsFamilyName" type="text">
-    </div>
-    <div class="form-group">
-      <label for="settingsTheme">Tema</label>
-      <select id="settingsTheme">
-        <option value="blue">Azul</option>
-        <option value="green">Verde</option>
-        <option value="purple">Morado</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>
-        <input id="settingsNotifications" type="checkbox">
-        Activar avisos
-      </label>
-    </div>
-    <div class="form-group">
-      <label>
-        <input id="settingsSound" type="checkbox">
-        Activar sonidos
-      </label>
-    </div>
-    <div class="form-actions">
-      <button class="secondary-button" onclick="closeSettings()">Cerrar</button>
-      <button class="primary-button" onclick="saveSettings()">Guardar</button>
-    </div>
-    <hr>
-    <h4>💾 Datos</h4>
-    <div class="form-actions">
-      <button class="secondary-button" onclick="exportData()">📤 Exportar</button>
-      <button class="secondary-button" onclick="importDataPrompt()">📥 Importar</button>
-      <button class="danger-button" onclick="resetFamily()">🗑️ Borrar datos</button>
-    </div>
-  </div>
-</div>
-
-<div id="messageModal" class="modal-backdrop">
-  <div class="modal">
-    <div class="modal-header">
-      <h3>💬 Nuevo mensaje</h3>
-      <button class="close-button" onclick="closeMessageModal()">×</button>
-    </div>
-    <div class="form-group">
-      <label for="messageTo">Para</label>
-      <select id="messageTo"></select>
-    </div>
-    <div class="form-group">
-      <label for="messageText">Mensaje</label>
-      <textarea id="messageText" rows="5" placeholder="Escribe un mensaje para la familia"></textarea>
-    </div>
-    <div class="form-actions">
-      <button class="secondary-button" onclick="closeMessageModal()">Cancelar</button>
-      <button class="primary-button" onclick="saveMessage()">Enviar</button>
-    </div>
-  </div>
-</div>
-
-<div id="eventModal" class="modal-backdrop">
-  <div class="modal">
-    <div class="modal-header">
-      <h3>📅 Nuevo evento</h3>
-      <button class="close-button" onclick="closeEventModal()">×</button>
-    </div>
-    <div class="form-group">
-      <label for="eventName">Nombre del evento</label>
-      <input id="eventName" type="text" placeholder="Ej.: Comida familiar">
-    </div>
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="eventDate">Fecha</label>
-        <input id="eventDate" type="date">
-      </div>
-      <div class="form-group">
-        <label for="eventTime">Hora</label>
-        <input id="eventTime" type="time">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="eventDescription">Descripción</label>
-      <textarea id="eventDescription" rows="3" placeholder="Detalles del evento"></textarea>
-    </div>
-    <div class="form-actions">
-      <button class="secondary-button" onclick="closeEventModal()">Cancelar</button>
-      <button class="primary-button" onclick="saveEvent()">Guardar evento</button>
-    </div>
-  </div>
-</div>
-
-<div id="confirmModal" class="modal-backdrop">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 id="confirmTitle">Confirmar</h3>
-      <button class="close-button" onclick="closeConfirm()">×</button>
-    </div>
-    <p id="confirmText">¿Quieres continuar?</p>
-    <div class="form-actions">
-      <button class="secondary-button" onclick="closeConfirm()">Cancelar</button>
-      <button class="danger-button" id="confirmButton">Confirmar</button>
-    </div>
-  </div>
-</div>
-
-<script>
-function saveSettings(){
-  const name=$("settingsFamilyName")?.value.trim();
-  const theme=$("settingsTheme")?.value||"blue";
-  const notifications=$("settingsNotifications")?.checked??true;
-  const sound=$("settingsSound")?.checked??true;
-  data.familyName=name;
-  data.settings.theme=theme;
-  data.settings.notifications=notifications;
-  data.settings.sound=sound;
-  saveData();
-  applyTheme();
-  closeSettings();
-  renderAll();
-}
-
-function applyTheme(){
-  const theme=data.settings?.theme||"blue";
-  document.body.dataset.theme=theme;
-}
-
-function closeMessageModal(){
-  const modal=$("messageModal");
-  if(modal)modal.classList.remove("open");
-}
-
-function openMessageModal(){
-  const modal=$("messageModal");
-  if(!modal)return;
-  fillMessageRecipients();
-  $("messageText").value="";
-  modal.classList.add("open");
-}
-
-function fillMessageRecipients(){
-  const select=$("messageTo");
-  if(!select)return;
-  select.innerHTML=`<option value="">Toda la familia</option>`+
-    data.members.map(member=>
-      `<option value="${member.id}">${escapeHtml(member.name)}</option>`
-    ).join("");
-}
-
-function saveMessage(){
-  const text=$("messageText")?.value.trim();
-  if(!text){
-    alert("Escribe un mensaje.");
-    return;
-  }
-  data.messages.unshift({
-    id:createId("message"),
-    to:$("messageTo")?.value||"",
-    text:text,
-    createdAt:new Date().toISOString(),
-    read:false
-  });
-  saveData();
-  closeMessageModal();
-  renderAll();
-}
-
-function closeEventModal(){
-  const modal=$("eventModal");
-  if(modal)modal.classList.remove("open");
-}
-
-function openEventModal(){
-  const modal=$("eventModal");
-  if(!modal)return;
-  $("eventName").value="";
-  $("eventDate").value=selectedDate||todayISO();
-  $("eventTime").value="";
-  $("eventDescription").value="";
-  modal.classList.add("open");
-}
-
-function saveEvent(){
-  const name=$("eventName")?.value.trim();
-  const date=$("eventDate")?.value;
-  if(!name||!date){
-    alert("Escribe un nombre y una fecha.");
-    return;
-  }
-  data.events.push({
-    id:createId("event"),
-    name:name,
-    date:date,
-    time:$("eventTime")?.value||"",
-    description:$("eventDescription")?.value.trim()||""
-  });
-  saveData();
-  closeEventModal();
-  renderAll();
-}
-
-function closeConfirm(){
-  const modal=$("confirmModal");
-  if(modal)modal.classList.remove("open");
-}
-
-function askConfirm(title,text,callback){
-  const modal=$("confirmModal");
-  if(!modal)return;
-  $("confirmTitle").textContent=title;
-  $("confirmText").textContent=text;
-  $("confirmButton").onclick=()=>{
-    closeConfirm();
-    callback();
-  };
-  modal.classList.add("open");
-}
-
-function importDataPrompt(){
-  const raw=prompt("Pega aquí el contenido JSON exportado:");
-  if(!raw)return;
-  try{
-    const imported=JSON.parse(raw);
-    if(!imported||typeof imported!=="object"){
-      throw new Error("Formato incorrecto");
-    }
-    data={
-      ...data,
-      ...imported
-    };
-    saveData();
-    renderAll();
-    alert("Datos importados correctamente.");
-  }catch(error){
-    alert("No se han podido importar los datos.");
-  }
-}
-        </script><!-- PARTE 7 -->
-<script>
-function renderMessages(){
-  const box=$("messagesList");
-  if(!box)return;
-  if(!data.messages.length){
-    box.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-icon">💬</div>
-        <strong>No hay mensajes todavía</strong>
-        <p>Escribe algo bonito para la familia.</p>
-      </div>`;
-    return;
-  }
-  box.innerHTML=data.messages.map(message=>{
-    const recipient=message.to
-      ?getMemberName(message.to)
-      :"Toda la familia";
-    const date=new Date(message.createdAt);
-    return`
-      <article class="task-card">
-        <div class="task-card-top">
-          <div class="member-avatar">💬</div>
-          <div class="task-info">
-            <div class="task-name">${escapeHtml(message.text)}</div>
-            <div class="task-meta">
-              <span>👨‍👩‍👧 ${escapeHtml(recipient)}</span>
-              <span>📅 ${date.toLocaleDateString("es-ES")}</span>
-              <span>🕐 ${date.toLocaleTimeString("es-ES",{hour:"2-digit",minute:"2-digit"})}</span>
-            </div>
-          </div>
-          <button class="icon-button" onclick="deleteMessage('${message.id}')">🗑️</button>
-        </div>
-      </article>`;
-  }).join("");
-}
-function deleteMessage(id){
-  askConfirm(
-    "Eliminar mensaje",
-    "¿Quieres eliminar este mensaje?",
-    ()=>{
-      data.messages=data.messages.filter(
-        message=>message.id!==id
-      );
-      saveData();
-      renderAll();
-    }
-  );
-}
-function renderEvents(){
-  const box=$("eventsList");
-  if(!box)return;
-  const events=[...data.events].sort((a,b)=>{
-    return `${a.date} ${a.time||""}`.localeCompare(
-      `${b.date} ${b.time||""}`
-    );
-  });
-  if(!events.length){
-    box.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-icon">📅</div>
-        <strong>No hay eventos familiares</strong>
-        <p>Añade cumpleaños, comidas o planes familiares.</p>
-      </div>`;
-    return;
-  }
-  box.innerHTML=events.map(event=>`
-    <article class="task-card">
-      <div class="task-card-top">
-        <div class="member-avatar">📅</div>
-        <div class="task-info">
-          <div class="task-name">${escapeHtml(event.name)}</div>
-          <div class="task-meta">
-            <span>📅 ${escapeHtml(formatDate(event.date))}</span>
-            <span>🕐 ${escapeHtml(event.time||"Sin hora")}</span>
-          </div>
-          ${event.description?`
-            <p>${escapeHtml(event.description)}</p>
-          `:""}
-        </div>
-        <button class="icon-button" onclick="deleteEvent('${event.id}')">🗑️</button>
-      </div>
-    </article>
-  `).join("");
-}
-function deleteEvent(id){
-  askConfirm(
-    "Eliminar evento",
-    "¿Quieres eliminar este evento?",
-    ()=>{
-      data.events=data.events.filter(
-        event=>event.id!==id
-      );
-      saveData();
-      renderAll();
-    }
-  );
-}
-function addShoppingItem(){
-  const input=$("shoppingInput");
-  if(!input)return;
-  const name=input.value.trim();
-  if(!name)return;
-  data.shopping.push({
-    id:createId("shopping"),
-    name:name,
-    done:false,
-    createdAt:new Date().toISOString()
-  });
-  input.value="";
-  saveData();
-  renderShopping();
-}
-function renderShopping(){
-  const box=$("shoppingList");
-  if(!box)return;
-  if(!data.shopping.length){
-    box.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-icon">🛒</div>
-        <strong>La lista está vacía</strong>
-        <p>Añade productos que necesitéis en casa.</p>
-      </div>`;
-    return;
-  }
-  box.innerHTML=data.shopping.map(item=>`
-    <div class="task-card ${item.done?"completed":""}">
-      <div class="task-card-top">
-        <input class="task-check"
-          type="checkbox"
-          ${item.done?"checked":""}
-          onchange="toggleShoppingItem('${item.id}')">
-        <div class="task-info">
-          <div class="task-name">${escapeHtml(item.name)}</div>
-        </div>
-        <button class="icon-button"
-          onclick="deleteShoppingItem('${item.id}')">
-          🗑️
-        </button>
-      </div>
-    </div>
-  `).join("");
-}
-function toggleShoppingItem(id){
-  const item=data.shopping.find(
-    item=>item.id===id
-  );
-  if(!item)return;
-  item.done=!item.done;
-  saveData();
-  renderShopping();
-}
-function deleteShoppingItem(id){
-  data.shopping=data.shopping.filter(
-    item=>item.id!==id
-  );
-  saveData();
-  renderShopping();
-}
-function clearShoppingCompleted(){
-  data.shopping=data.shopping.filter(
-    item=>!item.done
-  );
-  saveData();
-  renderShopping();
-}
-function addMemory(){
-  const text=$("memoryInput")?.value.trim();
-  if(!text)return;
-  data.memories.unshift({
-    id:createId("memory"),
-    text:text,
-    date:todayISO()
-  });
-  $("memoryInput").value="";
-  saveData();
-  renderMemories();
-}
-function renderMemories(){
-  const box=$("memoriesList");
-  if(!box)return;
-  if(!data.memories.length){
-    box.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-icon">📸</div>
-        <strong>Aún no hay recuerdos</strong>
-        <p>Guarda pequeños momentos especiales de vuestra familia.</p>
-      </div>`;
-    return;
-  }
-  box.innerHTML=data.memories.map(memory=>`
-    <article class="task-card">
-      <div class="task-card-top">
-        <div class="member-avatar">❤️</div>
-        <div class="task-info">
-          <div class="task-name">${escapeHtml(memory.text)}</div>
-          <div class="task-meta">
-            <span>📅 ${escapeHtml(formatDate(memory.date))}</span>
-          </div>
-        </div>
-        <button class="icon-button"
-          onclick="deleteMemory('${memory.id}')">
-          🗑️
-        </button>
-      </div>
-    </article>
-  `).join("");
-}
-function deleteMemory(id){
-  data.memories=data.memories.filter(
-    memory=>memory.id!==id
-  );
-  saveData();
-  renderMemories();
-}
-function addChallenge(){
-  const name=$("challengeName")?.value.trim();
-  const points=Number($("challengePoints")?.value||0);
-  if(!name)return;
-  data.challenges.push({
-    id:createId("challenge"),
-    name:name,
-    points:points,
-    done:false,
-    createdAt:new Date().toISOString()
-  });
-  if($("challengeName"))$("challengeName").value="";
-  if($("challengePoints"))$("challengePoints").value="10";
-  saveData();
-  renderChallenges();
-}
-function renderChallenges(){
-  const box=$("challengesList");
-  if(!box)return;
-  if(!data.challenges.length){
-    box.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-icon">🎯</div>
-        <strong>No hay retos familiares</strong>
-        <p>Podéis crear un reto para conseguir juntos.</p>
-      </div>`;
-    return;
-  }
-  box.innerHTML=data.challenges.map(challenge=>`
-    <article class="task-card ${challenge.done?"completed":""}">
-      <div class="task-card-top">
-        <input class="task-check"
-          type="checkbox"
-          ${challenge.done?"checked":""}
-          onchange="toggleChallenge('${challenge.id}')">
-        <div class="task-info">
-          <div class="task-name">${escapeHtml(challenge.name)}</div>
-          <div class="task-meta">
-            <span>⭐ ${Number(challenge.points)||0} puntos</span>
-            <span>${challenge.done?"✅ Conseguido":"🎯 En progreso"}</span>
-          </div>
-        </div>
-        <button class="icon-button"
-          onclick="deleteChallenge('${challenge.id}')">
-          🗑️
-        </button>
-      </div>
-    </article>
-  `).join("");
-}
-function toggleChallenge(id){
-  const challenge=data.challenges.find(
-    item=>item.id===id
-  );
-  if(!challenge)return;
-  challenge.done=!challenge.done;
-  saveData();
-  renderChallenges();
-}
-function deleteChallenge(id){
-  data.challenges=data.challenges.filter(
-    item=>item.id!==id
-  );
-  saveData();
-  renderChallenges();
-}
-</script><!-- PARTE 8 -->
-<script>
-function renderAchievements(){
-  const box=$("achievementsList");
-  if(!box)return;
-  const completed=data.tasks.filter(task=>task.done).length;
-  const totalPoints=data.members.reduce((sum,m)=>sum+getMemberPoints(m.id),0);
-  const definitions=[
-    ["first","🌱","Primera tarea","Completa tu primera tarea",completed>=1],
-    ["ten","🏅","10 tareas","Completa 10 tareas",completed>=10],
-    ["twenty","🏆","20 tareas","Completa 20 tareas",completed>=20],
-    ["fifty","🥇","50 tareas","Completa 50 tareas",completed>=50],
-    ["points","⭐","100 puntos","La familia consigue 100 puntos",totalPoints>=100],
-    ["fiveDays","📅","5 días","Completa tareas en 5 días diferentes",getActiveDays()>=5],
-    ["family","❤️","Familia unida","Hay al menos 2 personas en la familia",data.members.length>=2]
-  ];
-  box.innerHTML=definitions.map(item=>`
-    <div class="member-card ${item[4]?"":"completed"}">
-      <div class="member-avatar">${item[1]}</div>
-      <div class="member-main">
-        <div class="member-name">${item[2]} ${item[4]?"✅":"🔒"}</div>
-        <div class="member-role">${item[3]}</div>
-      </div>
-    </div>
-  `).join("");
-}
-function getActiveDays(){
-  return new Set(
-    data.tasks.filter(task=>task.done&&task.date)
-      .map(task=>task.date)
-  ).size;
-}
-function renderNotifications(){
-  const box=$("notificationsList");
-  if(!box)return;
-  const pending=getPendingTasks();
-  const today=getTasksForDate(todayISO());
-  const notices=[];
-  if(!data.members.length)notices.push("Configura las personas de la familia.");
-  if(!today.length)notices.push("Hoy no hay tareas programadas.");
-  if(pending.length)notices.push(`Hay ${pending.length} tareas pendientes.`);
-  if(!notices.length)notices.push("Todo está al día. ❤️");
-  box.innerHTML=notices.map(text=>`
-    <div class="task-card">
-      <div class="task-card-top">
-        <div class="member-avatar">🔔</div>
-        <div class="task-info">
-          <div class="task-name">${escapeHtml(text)}</div>
-        </div>
-      </div>
-    </div>
-  `).join("");
-}
-function renderWeeklyReport(){
-  const box=$("weeklyReport");
-  if(!box)return;
-  const tasks=getWeekTasks();
-  const completed=tasks.filter(task=>task.done).length;
-  const points=tasks.filter(task=>task.done)
-    .reduce((sum,task)=>sum+(Number(task.points)||0),0);
-  const percent=tasks.length
-    ?Math.round(completed/tasks.length*100):0;
-  box.innerHTML=`
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-label">Tareas de la semana</div>
-        <div class="stat-value">${tasks.length}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Completadas</div>
-        <div class="stat-value">${completed}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Puntos ganados</div>
-        <div class="stat-value">${points}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Cumplimiento</div>
-        <div class="stat-value">${percent}%</div>
-      </div>
-    </div>
-    <div class="progress"><span style="width:${percent}%"></span></div>
-  `;
-}
-function renderMonthlyReport(){
-  const box=$("monthlyReport");
-  if(!box)return;
-  const tasks=getMonthTasks();
-  const completed=tasks.filter(task=>task.done).length;
-  const points=tasks.filter(task=>task.done)
-    .reduce((sum,task)=>sum+(Number(task.points)||0),0);
-  const percent=tasks.length
-    ?Math.round(completed/tasks.length*100):0;
-  box.innerHTML=`
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-label">Tareas del mes</div>
-        <div class="stat-value">${tasks.length}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Completadas</div>
-        <div class="stat-value">${completed}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Puntos</div>
-        <div class="stat-value">${points}</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">Cumplimiento</div>
-        <div class="stat-value">${percent}%</div>
-      </div>
-    </div>
-  `;
-}
-function renderRewardsList(){
-  const box=$("rewardsList");
-  if(!box)return;
-  if(!data.rewards.length){
-    box.innerHTML=`
-      <div class="empty-state">
-        <div class="empty-icon">🎁</div>
-        <strong>No hay premios</strong>
-        <p>Crea premios que tengan sentido para vuestra familia.</p>
-      </div>`;
-    return;
-  }
-  box.innerHTML=data.rewards.map(reward=>`
-    <article class="reward-card">
-      <div class="reward-row">
-        <div class="reward-icon">${escapeHtml(reward.icon||"🎁")}</div>
-        <div class="reward-main">
-          <div class="reward-name">${escapeHtml(reward.name)}</div>
-          <div class="reward-cost">⭐ ${Number(reward.points)||0} puntos</div>
-        </div>
-      </div>
-      ${reward.description?`<p>${escapeHtml(reward.description)}</p>`:""}
-      <div class="reward-buttons">
-        <button class="secondary-button" onclick="editReward('${reward.id}')">✏️ Editar</button>
-        <button class="secondary-button" onclick="redeemReward('${reward.id}')">🎉 Canjear</button>
-        <button class="danger-button" onclick="deleteReward('${reward.id}')">🗑️ Eliminar</button>
-      </div>
-    </article>
-  `).join("");
-}
-function openMemberDetails(memberId){
-  const member=data.members.find(m=>m.id===memberId);
-  if(!member)return;
-  const completed=getMemberCompletedPoints(memberId);
-  const pending=getMemberPendingPoints(memberId);
-  const tasks=getTodayTasksForMember(memberId);
-  alert(
-    `${member.name}\n\n`+
-    `⭐ Puntos: ${getMemberPoints(memberId)}\n`+
-    `✅ Puntos ganados: ${completed}\n`+
-    `⏳ Puntos pendientes: ${pending}\n`+
-    `📋 Tareas de hoy: ${tasks.length}`
-  );
-}
-function showMemberTasks(memberId){
-  const member=data.members.find(m=>m.id===memberId);
-  if(!member)return;
-  const tasks=sortTasksByDate(
-    data.tasks.filter(task=>task.memberId===memberId)
-  );
-  const names=tasks.length
-    ?tasks.map(task=>`${task.date||""} ${task.name}${task.done?" ✅":""}`).join("\n")
-    :"No tiene tareas.";
-  alert(`Tareas de ${member.name}:\n\n${names}`);
-}
-function getFamilyTotalPoints(){
-  return data.members.reduce(
-    (sum,member)=>sum+getMemberPoints(member.id),0
-  );
-}
-function getCompletedCountForMember(memberId){
-  return data.tasks.filter(task=>
-    task.memberId===memberId&&task.done
-  ).length;
-}
-function getPendingCountForMember(memberId){
-  return data.tasks.filter(task=>
-    task.memberId===memberId&&!task.done
-  ).length;
-}
-function getCompletionForMember(memberId){
-  const tasks=data.tasks.filter(
-    task=>task.memberId===memberId
-  );
-  if(!tasks.length)return 0;
-  return Math.round(
-    tasks.filter(task=>task.done).length/tasks.length*100
-  );
-}
-function renderMemberStats(){
-  const box=$("memberStats");
-  if(!box)return;
-  box.innerHTML=data.members.map(member=>`
-    <div class="member-card">
-      <div class="member-avatar">${escapeHtml(member.avatar||"🙂")}</div>
-      <div class="member-main">
-        <div class="member-name">${escapeHtml(member.name)}</div>
-        <div class="member-role">${escapeHtml(member.role||"Miembro")}</div>
-        <div class="task-meta">
-          <span>⭐ ${getMemberPoints(member.id)}</span>
-          <span>📊 ${getCompletionForMember(member.id)}%</span>
-        </div>
-      </div>
-    </div>
-  `).join("");
-}
-function renderNextTask(){
-  const box=$("nextTask");
-  if(!box)return;
-  const task=getNextTask();
-  if(!task){box.innerHTML=`<div class="empty-state"><div class="empty-icon">🎉</div><strong>Todo hecho</strong></div>`;return;}
-  box.innerHTML=`<div class="task-card"><div class="task-name">${escapeHtml(task.name)}</div><div class="task-meta"><span>📅 ${escapeHtml(formatDate(task.date))}</span><span>⭐ ${Number(task.points)||0}</span></div></div>`;
-}
-// Próximamente se conectarán más estadísticas al panel.
-</script><!-- PARTE 9 -->
-<style>
-body[data-theme="green"]{--primary:#2e7d57}
-body[data-theme="purple"]{--primary:#7654c8}
-body[data-theme="blue"]{--primary:#315c9b}
-body[data-theme="green"] .primary-button{background:#2e7d57}
-body[data-theme="purple"] .primary-button{background:#7654c8}
-body[data-theme="green"] .progress>span{background:#2e7d57}
-body[data-theme="purple"] .progress>span{background:#7654c8}
-.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#202733;color:#fff;padding:11px 16px;border-radius:12px;display:none;z-index:2000}
-.toast.show{display:block}
-@media(max-width:600px){
-  .calendar-day{min-height:72px;padding:5px}
-  .calendar-task{font-size:9px}
-  .form-grid{grid-template-columns:1fr}
-  .form-group.full{grid-column:auto}
-  .quick-actions{grid-template-columns:1fr}
-  .task-actions{width:100%}
-}
-</style>
-<script>
-function showToast(text){
-  let toast=$("appToast");
-  if(!toast){
-    toast=document.createElement("div");
-    toast.id="appToast";
-    toast.className="toast";
-    document.body.appendChild(toast);
-  }
-  toast.textContent=text;
-  toast.classList.add("show");
-  clearTimeout(window.toastTimer);
-  window.toastTimer=setTimeout(()=>{
-    toast.classList.remove("show");
-  },2200);
-}
-function renderChildPanel(memberId){
-  const box=$("childPanel");
-  if(!box)return;
-  const member=data.members.find(m=>m.id===memberId);
-  if(!member){
-    box.innerHTML=`<div class="empty-state"><div class="empty-icon">👋</div><strong>Elige una persona</strong></div>`;
-    return;
-  }
-  const tasks=getTodayTasksForMember(memberId);
-  const points=getMemberPoints(memberId);
-  box.innerHTML=`
-    <div class="child-panel">
-      <h2>Hola, ${escapeHtml(member.name)} 👋</h2>
-      <div class="big-points">${points} ⭐</div>
-      <p style="text-align:center">Tus puntos</p>
-      <div class="section-title"><h3>Mis tareas de hoy</h3></div>
-      ${tasks.length?tasks.map(task=>`
-        <div class="today-task">
-          <input class="task-check" type="checkbox"
-            ${task.done?"checked":""}
-            onchange="toggleTask('${task.id}')">
-          <div class="today-task-main">
-            <div class="today-task-name">${escapeHtml(task.name)}</div>
-            <div class="today-task-time">${escapeHtml(task.time||"Sin hora")} · ⭐ ${Number(task.points)||0}</div>
-          </div>
-        </div>
-      `).join(""):`<div class="empty-state"><div class="empty-icon">🎉</div><strong>No tienes tareas para hoy</strong></div>`}
-    </div>`;
-}
-function setSelectedMember(memberId){
-  window.selectedMemberId=memberId;
-  document.querySelectorAll(".member-selector button")
-    .forEach(button=>{
-      button.classList.toggle(
-        "active",
-        button.dataset.memberId===memberId
-      );
-    });
-  renderChildPanel(memberId);
-}
-function renderMemberSelector(){
-  const box=$("memberSelector");
-  if(!box)return;
-  box.innerHTML=data.members.map(member=>`
-    <button data-member-id="${member.id}"
-      onclick="setSelectedMember('${member.id}')">
-      ${escapeHtml(member.avatar||"🙂")}
-      ${escapeHtml(member.name)}
-    </button>
-  `).join("");
-  if(!window.selectedMemberId&&data.members.length){
-    window.selectedMemberId=data.members[0].id;
-  }
-  if(window.selectedMemberId){
-    setSelectedMember(window.selectedMemberId);
-  }
-}
-function addMemberQuick(){
-  const name=prompt("Nombre de la persona:");
-  if(!name||!name.trim())return;
-  const role=prompt("Rol o relación familiar:","Miembro de la familia")||"Miembro de la familia";
-  const avatar=prompt("Elige un emoji para su perfil:","🙂")||"🙂";
-  data.members.push({
-    id:createId("member"),
-    name:name.trim(),
-    role:role.trim(),
-    avatar:avatar.trim(),
-    points:0
-  });
-  saveData();
-  renderAll();
-  showToast("Persona añadida ❤️");
-}
-function removeMember(memberId){
-  const member=data.members.find(m=>m.id===memberId);
-  if(!member)return;
-  askConfirm(
-    "Eliminar persona",
-    `¿Quieres eliminar a ${member.name}?`,
-    ()=>{
-      data.members=data.members.filter(m=>m.id!==memberId);
-      data.tasks=data.tasks.filter(t=>t.memberId!==memberId);
-      saveData();
-      renderAll();
-    }
-  );
-}
-function resetPoints(memberId){
-  const member=data.members.find(m=>m.id===memberId);
-  if(!member)return;
-  askConfirm(
-    "Reiniciar puntos",
-    `¿Reiniciar los puntos de ${member.name}?`,
-    ()=>{
-      member.points=0;
-      saveData();
-      renderAll();
-      showToast("Puntos reiniciados");
-    }
-  );
-}
-function addFamilyMessage(){
-  openMessageModal();
-}
-function addFamilyEvent(){
-  openEventModal();
-}
-function addFamilyReward(){
-  openRewardModal();
-}
-function addFamilyTask(){
-  selectedDate=todayISO();
-  openTaskModal();
-}
-function addFamilyChallenge(){
-  const name=prompt("Nombre del reto familiar:");
-  if(!name||!name.trim())return;
-  const points=Number(prompt("Puntos del reto:","20")||20);
-  data.challenges.push({
-    id:createId("challenge"),
-    name:name.trim(),
-    points:Math.max(0,points),
-    done:false,
-    createdAt:new Date().toISOString()
-  });
-  saveData();
-  renderAll();
-}
-function toggleNotifications(){
-  data.settings.notifications=!data.settings.notifications;
-  saveData();
-  renderAll();
-  showToast(
-    data.settings.notifications
-      ?"Avisos activados"
-      :"Avisos desactivados"
-  );
-}
-function requestBrowserNotifications(){
-  if(!("Notification" in window)){
-    showToast("Tu navegador no permite avisos.");
-    return;
-  }
-  Notification.requestPermission().then(result=>{
-    if(result==="granted"){
-      showToast("Avisos del navegador activados.");
-    }else{
-      showToast("Los avisos no están permitidos.");
-    }
-  });
-}
-function notifyNextTask(){
-  const task=getNextTask();
-  if(!task){
-    showToast("No hay tareas pendientes.");
-    return;
-  }
-  showToast(`Próxima tarea: ${task.name}`);
-}
-function safeCloseModals(){
-  document.querySelectorAll(".modal-backdrop")
-    .forEach(modal=>modal.classList.remove("open"));
-}
-</script><!-- PARTE 10 - FINAL -->
-<script>
-function ensureExtraContainers(){
-  const ids=[
-    ["messagesList","messagesList"],
-    ["eventsList","eventsList"],
-    ["shoppingList","shoppingList"],
-    ["memoriesList","memoriesList"],
-    ["challengesList","challengesList"],
-    ["achievementsList","achievementsList"],
-    ["notificationsList","notificationsList"],
-    ["weeklyReport","weeklyReport"],
-    ["monthlyReport","monthlyReport"],
-    ["memberStats","memberStats"],
-    ["nextTask","nextTask"],
-    ["memberSelector","memberSelector"],
-    ["childPanel","childPanel"]
-  ];
-  ids.forEach(([id,className])=>{
-    if(!$(id)){
-      const element=document.createElement("div");
-      element.id=id;
-      element.className=className;
-      element.hidden=true;
-      document.body.appendChild(element);
-    }
-  });
-}
-function renderExtras(){
-  renderMessages();
-  renderEvents();
-  renderShopping();
-  renderMemories();
-  renderChallenges();
-  renderAchievements();
-  renderNotifications();
-  renderWeeklyReport();
-  renderMonthlyReport();
-  renderMemberStats();
-  renderNextTask();
-  renderMemberSelector();
-}
-function setupExtraInputs(){
-  const search=$("taskSearch");
-  if(search){
-    search.addEventListener("input",renderTaskList);
-  }
-  const filter=$("taskFilter");
-  if(filter){
-    filter.addEventListener("change",renderTaskList);
-  }
-  const shopping=$("shoppingInput");
-  if(shopping){
-    shopping.addEventListener("keydown",event=>{
-      if(event.key==="Enter")addShoppingItem();
-    });
-  }
-  const memory=$("memoryInput");
-  if(memory){
-    memory.addEventListener("keydown",event=>{
-      if(event.key==="Enter")addMemory();
-    });
-  }
-}
-function createRepeatedTasks(task,repeat){
-  if(!task||repeat==="none")return;
-  const copies=[];
-  for(let i=1;i<=6;i++){
-    const date=new Date(task.date+"T12:00:00");
-    if(repeat==="daily")date.setDate(date.getDate()+i);
-    if(repeat==="weekly")date.setDate(date.getDate()+i*7);
-    if(repeat==="monthly")date.setMonth(date.getMonth()+i);
-    const iso=localDateISO(date);
-    if(data.tasks.some(item=>
-      item.date===iso&&
-      item.name===task.name&&
-      item.memberId===task.memberId
-    ))continue;
-    copies.push({
-      ...task,
-      id:createId("task"),
-      date:iso,
-      done:false,
-      completedAt:null,
-      createdAt:new Date().toISOString()
-    });
-  }
-  data.tasks.push(...copies);
-}
-function installRepeatSupport(){
-  if(window.repeatSupportInstalled)return;
-  window.repeatSupportInstalled=true;
-  const originalSaveTask=saveTask;
-  window.saveTask=function(){
-    const repeat=$("taskRepeat")?.value||"none";
-    const wasEditing=!!editingTaskId;
-    const oldIds=new Set(data.tasks.map(task=>task.id));
-    originalSaveTask();
-    if(!wasEditing&&repeat!=="none"){
-      const created=data.tasks.find(task=>!oldIds.has(task.id));
-      if(created)createRepeatedTasks(created,repeat);
-      saveData();
-      renderAll();
-    }
-  };
-}
-function installRenderBridge(){
-  if(window.renderBridgeInstalled)return;
-  window.renderBridgeInstalled=true;
-  const originalRenderAll=renderAll;
-  window.renderAll=function(){
-    originalRenderAll();
-    renderExtras();
-    renderCalendar();
-    renderTaskList();
-    applyTheme();
-  };
-}
-function prepareApplication(){
-  loadData();
-  ensureExtraContainers();attachExtraPanels();
-  setupExtraInputs();
-  installRepeatSupport();
-  installRenderBridge();
-  applyTheme();
-  renderAll();
-  if(!selectedDate)selectedDate=todayISO();
-  calendarDate=new Date();
-}
-function closeWithEscape(event){
-  if(event.key==="Escape")safeCloseModals();
-}
-document.addEventListener("keydown",closeWithEscape);
-document.addEventListener("click",event=>{
-  if(event.target.classList.contains("modal-backdrop")){
-    event.target.classList.remove("open");
-  }
+document.querySelectorAll(".page").forEach(page=>{
+page.classList.add("hidden");
 });
-function initializeButtons(){
-  const addTask=$("quickAddTask");
-  if(addTask)addTask.onclick=addFamilyTask;
-  const addReward=$("quickAddReward");
-  if(addReward)addReward.onclick=addFamilyReward;
-  const addMessage=$("quickAddMessage");
-  if(addMessage)addMessage.onclick=addFamilyMessage;
-  const addEvent=$("quickAddEvent");
-  if(addEvent)addEvent.onclick=addFamilyEvent;
-  const addChallengeButton=$("quickAddChallenge");
-  if(addChallengeButton)addChallengeButton.onclick=addFamilyChallenge;
-}
-function ensureFamilyName(){
-  if(!data.familyName){
-    const heading=$("familyNameDisplay");
-    if(heading)heading.textContent="Nuestra familia";
-  }
-}
-function showStartupMessage(){
-  if(data.familyName){
-    showToast(`Bienvenidos, ${data.familyName} ❤️`);
-  }
-}
-function bootApp(){
-  prepareApplication();
-  initializeButtons();
-  ensureFamilyName();
-  setTimeout(showStartupMessage,300);
-}
-if(document.readyState==="loading"){
-  document.addEventListener("DOMContentLoaded",bootApp);
-}else{
-  bootApp();
-}
-function attachExtraPanels(){
-  const target=$("moreScreen")||$("screen-more")||document.body;
-  const ids=["messagesList","eventsList","shoppingList","memoriesList","challengesList"];
-  ids.forEach(id=>{
-    const node=$(id);
-    if(node&&node.parentElement===document.body){
-      target.appendChild(node);
-      node.hidden=false;
-    }
-  });
-}
-</script>
 
-<style>
-body[data-theme="green"] .primary-button{background:#2e7d57}
-body[data-theme="purple"] .primary-button{background:#7654c8}
-body[data-theme="blue"] .primary-button{background:#315c9b}
-body[data-theme="green"] .secondary-button{border-color:#2e7d57}
-body[data-theme="purple"] .secondary-button{border-color:#7654c8}
-@media(max-width:600px){
-  .calendar-weekdays div{font-size:10px}
-  .calendar-day{min-height:68px}
-  .calendar-task{font-size:8px}
+const page=$(pageId);
+
+if(page){
+page.classList.remove("hidden");
 }
-</style>
+
+document.querySelectorAll(".nav-btn").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+if(button){
+button.classList.add("active");
+}else{
+const nav=document.querySelector(`[data-page="${pageId}"]`);
+if(nav)nav.classList.add("active");
+}
+
+renderAll();
+}
+
+function renderAll(){
+updateHeader();
+renderHome();
+renderTasksPage();
+renderCalendar();
+renderFamily();
+renderPoints();
+renderRewards();
+}
+
+function updateHeader(){
+$("familyTitle").textContent=data.familyName||"Mi familia";
+}
+
+function renderHome(){
+
+const today=todayISO();
+
+const tasks=data.tasks.filter(t=>t.date===today);
+
+$("homeTasks").textContent=tasks.length;
+
+$("homeDone").textContent=
+tasks.filter(t=>t.done).length;
+
+$("homePoints").textContent=
+data.members.reduce((sum,m)=>sum+(m.points||0),0);
+
+$("homeRewards").textContent=data.rewards.length;
+
+let html="";
+
+if(tasks.length===0){
+
+html=`
+<div class="card">
+<div class="empty">
+<h3>No hay tareas para hoy</h3>
+<p style="margin-top:8px;">
+Puedes crear una pulsando “Nueva”.
+</p>
+<button class="btn btn-primary" style="margin-top:15px;" onclick="openNewTask()">
+➕ Crear tarea
+</button>
+</div>
+</div>
+`;
+
+}else{
+
+tasks.sort(sortByTime);
+
+html=tasks.map(taskCard).join("");
+}
+
+$("homeTaskList").innerHTML=html;
+
+renderHomePoints();
+}
+
+function renderHomePoints(){
+
+if(data.members.length===0){
+$("homePointsList").innerHTML=`
+<div class="empty">
+Todavía no hay personas añadidas.
+</div>`;
+return;
+}
+
+$("homePointsList").innerHTML=data.members.map(member=>`
+
+<div class="points-row">
+<div>
+<div class="points-name">${escapeHtml(member.name)}</div>
+<div style="font-size:12px;color:#8993a4;">
+Puntos acumulados
+</div>
+</div>
+
+<div class="points-value">
+⭐ ${member.points||0}
+</div>
+</div>
+
+`).join("");
+}
+
+function sortByTime(a,b){
+return String(a.time||"").localeCompare(String(b.time||""));
+}
+
+function taskCard(task){
+
+return`
+<div class="task-card ${task.done?"done":""}"
+onclick="openTaskDetail('${task.id}')">
+
+<div class="task-title">
+${task.done?"✅ ":""}${escapeHtml(task.name)}
+</div>
+
+<div class="task-meta">
+<span>👤 ${escapeHtml(getMemberName(task.memberId))}</span>
+<span>🕐 ${escapeHtml(task.time||"--:--")}</span>
+<span>⭐ ${task.points||0} puntos</span>
+</div>
+
+<div class="task-actions"
+onclick="event.stopPropagation()">
+
+<button class="small-btn"
+onclick="toggleTask('${task.id}')">
+${task.done?"↩️ Deshacer":"✅ Completar"}
+</button>
+
+<button class="small-btn"
+onclick="openEditTask('${task.id}')">
+✏️ Editar
+</button>
+
+</div>
+</div>
+`;
+}
+
+function renderTasksPage(){
+
+const date=$("taskPageDate");
+
+if(date && !date.value){
+date.value=todayISO();
+}
+
+fillTaskMemberFilter();
+
+const selected=date?date.value:todayISO();
+const member=$("taskPageMember")?.value||"";
+
+let tasks=data.tasks.filter(t=>t.date===selected);
+
+if(member){
+tasks=tasks.filter(t=>t.memberId===member);
+}
+
+tasks.sort(sortByTime);
+
+if(tasks.length===0){
+
+$("tasksPageList").innerHTML=`
+<div class="card">
+<div class="empty">
+<h3>No hay tareas</h3>
+<p style="margin-top:7px;">Crea una tarea para este día.</p>
+<button class="btn btn-primary" style="margin-top:15px;"
+onclick="openNewTask('${selected}')">
+➕ Nueva tarea
+</button>
+</div>
+</div>`;
+return;
+}
+
+$("tasksPageList").innerHTML=tasks.map(taskCard).join("");
+}
+
+function fillTaskMemberFilter(){
+
+const select=$("taskPageMember");
+
+if(!select)return;
+
+const current=select.value;
+
+select.innerHTML=
+`<option value="">Todas las personas</option>`+
+data.members.map(m=>
+`<option value="${m.id}">${escapeHtml(m.name)}</option>`
+).join("");
+
+select.value=current;
+}
+
+function renderCalendar(){
+
+const d=new Date(selectedDate+"T12:00:00");
+
+$("calendarDateTitle").textContent=
+d.toLocaleDateString("es-ES",{
+weekday:"long",
+day:"numeric",
+month:"long"
+});
+
+$("calendarDateSubtitle").textContent=
+d.toLocaleDateString("es-ES",{
+year:"numeric"
+});
+
+renderDailySchedule();
+}
+
+function renderDailySchedule(){
+
+const hours=[];
+
+for(let hour=0;hour<24;hour++){
+
+const tasks=data.tasks
+.filter(t=>t.date===selectedDate)
+.filter(t=>
+String(t.time||"").startsWith(
+String(hour).padStart(2,"0")+":"
+)
+)
+.sort(sortByTime);
+
+let content="";
+
+if(tasks.length){
+
+content=tasks.map(task=>taskCard(task)).join("");
+
+}else{
+
+content=`
+<div class="empty-hour"
+onclick="openNewTask('${selectedDate}',${hour})">
+➕ Añadir tarea a las ${formatHour(hour)}
+</div>
+`;
+}
+
+hours.push(`
+<div class="task-hour">
+
+<div class="hour-label">
+${formatHour(hour)}
+</div>
+
+<div class="hour-content">
+${content}
+</div>
+
+</div>
+`);
+}
+
+$("dailySchedule").innerHTML=hours.join("");
+}
+
+function changeDay(amount){
+
+const d=new Date(selectedDate+"T12:00:00");
+
+d.setDate(d.getDate()+amount);
+
+selectedDate=localISO(d);
+
+renderCalendar();
+}
+
+function goToday(){
+
+selectedDate=todayISO();
+
+renderCalendar();
+  }function openNewTask(date=selectedDate,hour=null){
+
+editingTaskId=null;
+
+$("taskModalTitle").textContent="Nueva tarea";
+
+$("taskName").value="";
+$("taskDate").value=date||todayISO();
+
+if(hour!==null){
+
+$("taskTime").value=
+String(hour).padStart(2,"0")+":00";
+
+}else{
+
+const now=new Date();
+
+$("taskTime").value=
+String(now.getHours()).padStart(2,"0")+":00";
+
+}
+
+$("taskPoints").value=10;
+$("taskNotes").value="";
+
+fillTaskPeople();
+
+$("taskModal").classList.add("open");
+}
+
+function fillTaskPeople(selected=""){
+
+const select=$("taskPerson");
+
+select.innerHTML=
+`<option value="">Seleccionar persona</option>`+
+data.members.map(m=>
+`<option value="${m.id}">${escapeHtml(m.name)}</option>`
+).join("");
+
+if(selected)select.value=selected;
+}
+
+function openEditTask(id){
+
+const task=data.tasks.find(t=>t.id===id);
+
+if(!task)return;
+
+editingTaskId=id;
+
+$("taskModalTitle").textContent="Editar tarea";
+
+$("taskName").value=task.name;
+$("taskDate").value=task.date;
+$("taskTime").value=task.time;
+$("taskPoints").value=task.points||0;
+$("taskNotes").value=task.notes||"";
+
+fillTaskPeople(task.memberId);
+
+$("taskModal").classList.add("open");
+}
+
+function closeTaskModal(){
+$("taskModal").classList.remove("open");
+editingTaskId=null;
+}
+
+function saveTask(){
+
+const name=$("taskName").value.trim();
+const date=$("taskDate").value;
+const time=$("taskTime").value;
+const memberId=$("taskPerson").value;
+const points=Number($("taskPoints").value)||0;
+const notes=$("taskNotes").value.trim();
+
+if(!name){
+showToast("Escribe el nombre de la tarea");
+return;
+}
+
+if(!date){
+showToast("Selecciona una fecha");
+return;
+}
+
+if(!time){
+showToast("Selecciona una hora");
+return;
+}
+
+if(!memberId){
+showToast("Selecciona quién hará la tarea");
+return;
+}
+
+if(editingTaskId){
+
+const task=data.tasks.find(t=>t.id===editingTaskId);
+
+if(task){
+
+task.name=name;
+task.date=date;
+task.time=time;
+task.memberId=memberId;
+task.points=points;
+task.notes=notes;
+
+}
+
+showToast("Tarea actualizada");
+
+}else{
+
+data.tasks.push({
+id:createId(),
+name,
+date,
+time,
+memberId,
+points,
+notes,
+done:false,
+completedAt:null
+});
+
+showToast("Tarea creada");
+
+}
+
+saveData();
+
+selectedDate=date;
+
+closeTaskModal();
+
+renderAll();
+
+showPage("pageCalendar");
+}
+
+function toggleTask(id){
+
+const task=data.tasks.find(t=>t.id===id);
+
+if(!task)return;
+
+if(task.done){
+
+task.done=false;
+
+const member=getMember(task.memberId);
+
+if(member){
+
+member.points=Math.max(
+0,
+(member.points||0)-Number(task.points||0)
+);
+
+}
+
+showToast("Tarea marcada como pendiente");
+
+}else{
+
+task.done=true;
+task.completedAt=new Date().toISOString();
+
+const member=getMember(task.memberId);
+
+if(member){
+
+member.points=
+(member.points||0)+Number(task.points||0);
+
+}
+
+showToast(`¡Tarea completada! +${task.points||0} puntos`);
+
+}
+
+saveData();
+renderAll();
+}
+
+function openTaskDetail(id){
+
+const task=data.tasks.find(t=>t.id===id);
+
+if(!task)return;
+
+detailTaskId=id;
+
+$("detailContent").innerHTML=`
+
+<div class="card" style="box-shadow:none;margin:0;padding:0;border:0;">
+
+<h2>${escapeHtml(task.name)}</h2>
+
+<div class="task-meta" style="margin-top:15px;">
+<span>👤 <strong>${escapeHtml(getMemberName(task.memberId))}</strong></span>
+<span>📅 ${escapeHtml(formatDate(task.date))}</span>
+<span>🕐 ${escapeHtml(task.time)}</span>
+<span>⭐ ${task.points||0} puntos</span>
+</div>
+
+<div class="info" style="margin-top:18px;">
+<strong>¿Qué tiene que hacer?</strong><br>
+${escapeHtml(task.name)}
+</div>
+
+${task.notes?`
+<div style="margin-top:15px;">
+<strong>📝 Notas</strong>
+<p class="subtitle">${escapeHtml(task.notes)}</p>
+</div>
+`:""}
+
+<div style="margin-top:15px;">
+<strong>Estado:</strong>
+${task.done?"✅ Completada":"⏳ Pendiente"}
+</div>
+
+</div>
+`;
+
+$("detailEditButton").onclick=()=>{
+closeDetail();
+openEditTask(id);
+};
+
+$("detailDeleteButton").onclick=()=>{
+deleteTask(id);
+};
+
+$("detailModal").classList.add("open");
+}
+
+function closeDetail(){
+$("detailModal").classList.remove("open");
+detailTaskId=null;
+}
+
+function deleteTask(id){
+
+const task=data.tasks.find(t=>t.id===id);
+
+if(!task)return;
+
+if(task.done){
+
+const member=getMember(task.memberId);
+
+if(member){
+
+member.points=Math.max(
+0,
+(member.points||0)-Number(task.points||0)
+);
+
+}
+
+}
+
+data.tasks=data.tasks.filter(t=>t.id!==id);
+
+saveData();
+
+closeDetail();
+
+renderAll();
+
+showToast("Tarea eliminada");
+}
+
+function renderFamily(){
+
+const box=$("familyList");
+
+if(data.members.length===0){
+
+box.innerHTML=`
+<div class="card empty">
+No hay personas todavía.
+</div>`;
+
+return;
+}
+
+box.innerHTML=data.members.map(member=>{
+
+const completed=data.tasks.filter(t=>
+t.memberId===member.id&&t.done
+).length;
+
+return`
+<div class="member-card">
+
+<div class="avatar">👤</div>
+
+<div class="member-name">
+${escapeHtml(member.name)}
+</div>
+
+<div class="points-big">
+⭐ ${member.points||0}
+</div>
+
+<div class="subtitle">
+${completed} tareas completadas
+</div>
+
+<div style="margin-top:15px;display:flex;gap:7px;flex-wrap:wrap;">
+
+<button class="small-btn"
+onclick="editMember('${member.id}')">
+✏️ Editar
+</button>
+
+<button class="small-btn"
+onclick="deleteMember('${member.id}')">
+🗑️ Eliminar
+</button>
+
+</div>
+
+</div>
+`;
+
+}).join("");
+  }function addMember(){
+
+const name=prompt("Nombre de la persona:");
+
+if(!name)return;
+
+const clean=name.trim();
+
+if(!clean)return;
+
+data.members.push({
+id:createId(),
+name:clean,
+points:0
+});
+
+saveData();
+
+renderAll();
+
+showToast("Persona añadida");
+}
+
+function editMember(id){
+
+const member=getMember(id);
+
+if(!member)return;
+
+const name=prompt("Nuevo nombre:",member.name);
+
+if(!name)return;
+
+member.name=name.trim();
+
+saveData();
+renderAll();
+
+showToast("Nombre actualizado");
+}
+
+function deleteMember(id){
+
+const member=getMember(id);
+
+if(!member)return;
+
+const ok=confirm(
+`¿Eliminar a ${member.name}? Las tareas asignadas también quedarán sin persona.`
+);
+
+if(!ok)return;
+
+data.members=data.members.filter(m=>m.id!==id);
+
+data.tasks.forEach(task=>{
+if(task.memberId===id){
+task.memberId="";
+}
+});
+
+saveData();
+renderAll();
+
+showToast("Persona eliminada");
+}
+
+function renderPoints(){
+
+const box=$("pointsPageList");
+
+if(data.members.length===0){
+
+box.innerHTML=`
+<div class="card empty">
+Primero añade personas en la sección Familia.
+</div>`;
+
+return;
+}
+
+box.innerHTML=data.members.map(member=>{
+
+const assigned=data.tasks.filter(t=>t.memberId===member.id);
+const completed=assigned.filter(t=>t.done);
+
+const totalEarned=completed.reduce(
+(sum,t)=>sum+Number(t.points||0),0
+);
+
+const max=Math.max(
+1,
+assigned.reduce((sum,t)=>sum+Number(t.points||0),0)
+);
+
+const percentage=Math.min(
+100,
+Math.round((totalEarned/max)*100)
+);
+
+return`
+
+<div class="card">
+
+<div style="display:flex;justify-content:space-between;gap:15px;align-items:center;">
+
+<div>
+<h2>${escapeHtml(member.name)}</h2>
+<p class="subtitle">
+${completed.length} tareas completadas
+</p>
+</div>
+
+<div style="text-align:right;">
+<div class="points-big">
+${member.points||0}
+</div>
+<div style="font-size:12px;color:#788398;">
+puntos
+</div>
+</div>
+
+</div>
+
+<div class="progress">
+<div class="progress-bar" style="width:${percentage}%"></div>
+</div>
+
+<div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+
+<button class="btn btn-secondary"
+onclick="showMemberTasks('${member.id}')">
+📋 Ver tareas
+</button>
+
+<button class="btn btn-purple"
+onclick="showMemberRewards('${member.id}')">
+🎟️ Canjear vale
+</button>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+}
+
+function showMemberTasks(memberId){
+
+const member=getMember(memberId);
+
+if(!member)return;
+
+const tasks=data.tasks.filter(t=>t.memberId===memberId);
+
+let message=`Tareas de ${member.name}\n\n`;
+
+if(tasks.length===0){
+message+="No tiene tareas.";
+}else{
+
+tasks.sort((a,b)=>
+(a.date+a.time).localeCompare(b.date+b.time)
+);
+
+message+=tasks.map(t=>
+`${t.done?"✅":"⏳"} ${t.date} ${t.time} — ${t.name} (+${t.points} puntos)`
+).join("\n");
+
+}
+
+alert(message);
+}
+
+function showMemberRewards(memberId){
+
+const member=getMember(memberId);
+
+if(!member)return;
+
+showPage("pageRewards");
+
+showToast(`Puntos disponibles de ${member.name}: ${member.points||0}`);
+}
+
+function renderRewards(){
+
+const box=$("rewardsList");
+
+if(data.rewards.length===0){
+
+box.innerHTML=`
+<div class="card empty">
+<h3>No hay vales todavía</h3>
+<p style="margin-top:8px;">
+Crea el primer vale de la familia.
+</p>
+<button class="btn btn-purple" style="margin-top:15px;"
+onclick="openRewardModal()">
+➕ Crear vale
+</button>
+</div>`;
+
+return;
+}
+
+box.innerHTML=data.rewards.map(reward=>`
+
+<div class="reward-card">
+
+<div class="reward-icon">
+${escapeHtml(reward.icon||"🎁")}
+</div>
+
+<div class="reward-title">
+${escapeHtml(reward.name)}
+</div>
+
+<div class="reward-cost">
+⭐ ${reward.points} puntos
+</div>
+
+<div class="reward-description">
+${escapeHtml(reward.description||"")}
+</div>
+
+<div class="task-actions">
+
+<button class="small-btn"
+onclick="openRewardEdit('${reward.id}')">
+✏️ Editar
+</button>
+
+<button class="small-btn"
+onclick="deleteReward('${reward.id}')">
+🗑️ Eliminar
+</button>
+
+<button class="small-btn"
+onclick="redeemReward('${reward.id}')">
+🎟️ Canjear
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+}
+
+function openRewardModal(){
+
+editingRewardId=null;
+
+$("rewardModalTitle").textContent="Crear vale";
+
+$("rewardName").value="";
+$("rewardIcon").value="🎁";
+$("rewardPoints").value=50;
+$("rewardDescription").value="";
+
+$("rewardModal").classList.add("open");
+}
+
+function openRewardEdit(id){
+
+const reward=data.rewards.find(r=>r.id===id);
+
+if(!reward)return;
+
+editingRewardId=id;
+
+$("rewardModalTitle").textContent="Editar vale";
+
+$("rewardName").value=reward.name;
+$("rewardIcon").value=reward.icon||"🎁";
+$("rewardPoints").value=reward.points;
+$("rewardDescription").value=reward.description||"";
+
+$("rewardModal").classList.add("open");
+}
+
+function closeRewardModal(){
+$("rewardModal").classList.remove("open");
+editingRewardId=null;
+}
+
+function saveReward(){
+
+const name=$("rewardName").value.trim();
+const icon=$("rewardIcon").value.trim()||"🎁";
+const points=Number($("rewardPoints").value)||0;
+const description=$("rewardDescription").value.trim();
+
+if(!name){
+showToast("Escribe el nombre del vale");
+return;
+}
+
+if(points<=0){
+showToast("Los puntos deben ser mayores que 0");
+return;
+}
+
+if(editingRewardId){
+
+const reward=data.rewards.find(
+r=>r.id===editingRewardId
+);
+
+if(reward){
+
+reward.name=name;
+reward.icon=icon;
+reward.points=points;
+reward.description=description;
+
+}
+
+showToast("Vale actualizado");
+
+}else{
+
+data.rewards.push({
+id:createId(),
+name,
+icon,
+points,
+description
+});
+
+showToast("Vale creado");
+}
+
+saveData();
+
+closeRewardModal();
+
+renderAll();
+  }function deleteReward(id){
+
+const reward=data.rewards.find(r=>r.id===id);
+
+if(!reward)return;
+
+if(!confirm(`¿Eliminar el vale "${reward.name}"?`)){
+return;
+}
+
+data.rewards=data.rewards.filter(r=>r.id!==id);
+
+saveData();
+
+renderAll();
+
+showToast("Vale eliminado");
+}
+
+function redeemReward(id){
+
+const reward=data.rewards.find(r=>r.id===id);
+
+if(!reward)return;
+
+if(data.members.length===0){
+
+showToast("Primero añade personas");
+
+return;
+}
+
+const options=data.members.map(
+(m,i)=>`${i+1}. ${m.name} — ${m.points||0} puntos`
+).join("\n");
+
+const answer=prompt(
+`¿Quién quiere canjear "${reward.name}"?\n\n${options}\n\nEscribe el número:`
+);
+
+if(!answer)return;
+
+const index=Number(answer)-1;
+
+if(index<0||index>=data.members.length){
+
+showToast("Persona no válida");
+
+return;
+}
+
+const member=data.members[index];
+
+if((member.points||0)<reward.points){
+
+alert(
+`${member.name} tiene ${member.points||0} puntos y necesita ${reward.points}.`
+);
+
+return;
+}
+
+const ok=confirm(
+`${member.name} va a canjear "${reward.name}" por ${reward.points} puntos.\n\n¿Continuar?`
+);
+
+if(!ok)return;
+
+member.points-=reward.points;
+
+saveData();
+
+renderAll();
+
+showToast(`Vale canjeado por ${member.name}`);
+}
+
+function openSettings(){
+
+$("settingsFamilyName").value=data.familyName||"";
+
+$("settingsModal").classList.add("open");
+}
+
+function closeSettings(){
+$("settingsModal").classList.remove("open");
+}
+
+function saveSettings(){
+
+const name=$("settingsFamilyName").value.trim();
+
+if(name){
+data.familyName=name;
+}
+
+saveData();
+
+closeSettings();
+
+renderAll();
+
+showToast("Ajustes guardados");
+}
+
+function testSubscription(){
+
+if(data.subscription){
+
+showToast("La suscripción de prueba ya está activa");
+
+return;
+}
+
+const ok=confirm(
+"Suscripción de prueba\n\n"+
+"Precio: 5,99 € / mes\n\n"+
+"El sistema de pago todavía no está conectado.\n\n"+
+"¿Quieres activar el modo de prueba?"
+);
+
+if(!ok)return;
+
+data.subscription=true;
+
+saveData();
+
+showToast("Suscripción de prueba activada");
+}
+
+function exportData(){
+
+const blob=new Blob(
+[JSON.stringify(data,null,2)],
+{type:"application/json"}
+);
+
+const url=URL.createObjectURL(blob);
+
+const a=document.createElement("a");
+
+a.href=url;
+
+a.download="no-estamos-solos-datos.json";
+
+a.click();
+
+URL.revokeObjectURL(url);
+
+showToast("Copia preparada");
+}
+
+function resetFamily(){
+
+const ok=confirm(
+"¿Seguro que quieres borrar todos los datos de No Estamos Solos?"
+);
+
+if(!ok)return;
+
+localStorage.removeItem(STORAGE_KEY);
+
+location.reload();
+}
+
+function showToast(message){
+
+const toast=$("toast");
+
+toast.textContent=message;
+
+toast.classList.add("show");
+
+clearTimeout(window.toastTimer);
+
+window.toastTimer=setTimeout(()=>{
+toast.classList.remove("show");
+},2600);
+}
+
+function addFirstMember(){
+
+const container=$("firstMembers");
+
+const div=document.createElement("div");
+
+div.className="form-group";
+
+div.innerHTML=`
+<label>Nombre</label>
+<input class="first-member-input"
+placeholder="Nombre de la persona">
+`;
+
+container.appendChild(div);
+}
+
+function startFamily(){
+
+const familyName=$("firstFamilyName").value.trim();
+
+if(!familyName){
+
+showToast("Escribe el nombre de la familia");
+
+return;
+}
+
+const inputs=
+document.querySelectorAll(".first-member-input");
+
+const members=[];
+
+inputs.forEach(input=>{
+
+const name=input.value.trim();
+
+if(name){
+
+members.push({
+id:createId(),
+name,
+points:0
+});
+
+}
+
+});
+
+if(members.length===0){
+
+showToast("Añade al menos una persona");
+
+return;
+}
+
+data={
+familyName,
+members,
+tasks:[],
+rewards:[
+{
+id:createId(),
+name:"Elegir la película",
+icon:"🎬",
+points:50,
+description:"Elegir qué película verá la familia."
+},
+{
+id:createId(),
+name:"Elegir la cena",
+icon:"🍕",
+points:70,
+description:"Elegir la cena especial."
+},
+{
+id:createId(),
+name:"Una tarde especial",
+icon:"🎮",
+points:100,
+description:"Disfrutar de una tarde especial."
+}
+],
+subscription:false
+};
+
+saveData();
+
+$("welcomeScreen").classList.remove("active");
+$("appScreen").classList.add("active");
+
+renderAll();
+
+showToast("¡Familia creada!");
+}
+
+function boot(){
+
+loadData();
+
+if(
+data.familyName&&
+Array.isArray(data.members)&&
+data.members.length>0
+){
+
+$("welcomeScreen").classList.remove("active");
+$("appScreen").classList.add("active");
+
+renderAll();
+
+}else{
+
+$("welcomeScreen").classList.add("active");
+$("appScreen").classList.remove("active");
+
+}
+
+}
+
+document.addEventListener("DOMContentLoaded",boot);
+
+window.addEventListener("click",function(event){
+
+document.querySelectorAll(".modal").forEach(modal=>{
+
+if(event.target===modal){
+
+modal.classList.remove("open");
+
+}
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
